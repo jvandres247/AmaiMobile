@@ -24,6 +24,10 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import Icon from 'react-native-vector-icons/Feather';
+import Button from './src/components/Button';
+import LoginScreen from './src/screens/Login/LoginScreen';
+
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
@@ -73,39 +77,79 @@ function App(): React.JSX.Element {
   const safePadding = '5%';
 
   return (
-    <View style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        style={backgroundStyle}>
-        <View style={{paddingRight: safePadding}}>
-          <Header/>
-        </View>
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-            paddingHorizontal: safePadding,
-            paddingBottom: safePadding,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </View>
+    // <View style={backgroundStyle}>
+    //   <StatusBar
+    //     barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+    //     backgroundColor={backgroundStyle.backgroundColor}
+    //   />
+    //   <ScrollView
+    //     style={backgroundStyle}>
+    //     <View style={{paddingRight: safePadding}}>
+    //       <Header/>
+    //     </View>
+    //     <View
+    //       style={{
+    //         backgroundColor: isDarkMode ? Colors.black : Colors.white,
+    //         paddingHorizontal: safePadding,
+    //         paddingBottom: safePadding,
+    //       }}>
+    //       <Section title="Step One">
+    //         Edit <Text style={styles.highlight}>App.tsx</Text> to change this
+    //         screen and then come back to see your edits.
+    //       </Section>
+    //       <Section title="See Your Changes">
+    //         <ReloadInstructions />
+    //       </Section>
+    //       <Section title="Debug">
+    //         <DebugInstructions />
+    //       </Section>
+    //       <Section title="Learn More">
+    //         Read the docs to discover what to do next:
+    //       </Section>
+    //       <LearnMoreLinks />
+    //     </View>
+    //   </ScrollView>
+    // </View>
+    // <View style={{padding: 20}}>
+    //   <Button
+    //     text="Boton xs"
+    //     size="xs"
+    //     variant="primary"
+    //     onPress={() => console.log('Guardado')}
+    //   />
+    //   <Button
+    //     text="Boton s"
+    //     size="s"
+    //     variant="primary"
+    //     iconLeft={<Icon name="save" size={20} color="#fff" />}
+    //     onPress={() => console.log('Guardado')}
+    //   />
+    //   <Button
+    //     text="Boton m"
+    //     size="m"
+    //     variant="primary"
+    //     iconLeft={<Icon name="save" size={20} color="#fff" />}
+    //     onPress={() => console.log('Guardado')}
+    //   />
+    //   <Button
+    //     text="Boton l"
+    //     size="l"
+    //     variant="secondary"
+    //     // iconRight={<Icon name="arrow-right" size={20} color="#000" />}
+    //     onPress={() => console.log('Siguiente')}
+    //     disabled={false}
+    //   />
+
+    //   <Button
+    //     text="Boton xl"
+    //     size="xl"
+    //     variant="tertiary"
+    //     iconRight={<Icon name="arrow-right" size={20} color="#000" />}
+    //     onPress={() => console.log('nEXT')}
+    //     disabled={false}
+    //   />
+    // </View>
+    <LoginScreen />
   );
 }
 
