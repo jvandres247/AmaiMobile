@@ -15,16 +15,22 @@ import IconFE from 'react-native-vector-icons/Feather';
 import Button from '../../components/Button';
 import LoginScreenLogo from '../../assets/svg/LoginScreenLogo.svg';
 
-const LoginScreen = () => {
+const SignUpScreen = () => {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
+  const [nameError, setNameError] = useState('');
 
   const validate = () => {
     let isValid = true;
+    if (name.length < 6) {
+      setNameError('El nombre debe tener al menos 6 caracteres');
+      isValid = false;
+    }
     if (!email.includes('@')) {
       setEmailError('Ingresa un email válido');
       isValid = false;
@@ -39,6 +45,13 @@ const LoginScreen = () => {
   const handleLogin = () => {
     if (validate()) {
       console.log('Iniciando sesión...');
+    }
+  };
+
+  const handleNameChange = (text: string) => {
+    setName(text);
+    if (nameError && text.length >= 6) {
+      setNameError('');
     }
   };
 
@@ -66,8 +79,25 @@ const LoginScreen = () => {
           keyboardShouldPersistTaps="handled">
           <View style={styles.header}>
             <LoginScreenLogo width={108} height={108} />
-            <Text style={styles.title}>Bienvenido de nuevo ✨</Text>
-            <Text style={styles.subtitle}>Tu espacio interior te espera</Text>
+            <Text style={styles.title}>Comienza tu camino 🌱</Text>
+            <Text style={styles.subtitle}>
+              Crea tu espacio personal para florecer.
+            </Text>
+          </View>
+
+          <View style={styles.inputGroup}>
+            <Text style={styles.label}>
+              Nombre <Text style={{color: '#EC7047'}}>*</Text>
+            </Text>
+            <TextInput
+              placeholder="Nombre"
+              style={styles.input}
+              value={name}
+              onChangeText={handleNameChange}
+              keyboardType="default"
+              autoCapitalize="none"
+            />
+            {nameError !== '' && <Text style={styles.error}>{nameError}</Text>}
           </View>
 
           <View style={styles.inputGroup}>
@@ -116,7 +146,7 @@ const LoginScreen = () => {
 
           <View style={styles.buttonWrapper}>
             <Button
-              text="Iniciar sesión"
+              text="Crear cuenta"
               size="xl"
               variant="primary"
               onPress={handleLogin}
@@ -127,13 +157,13 @@ const LoginScreen = () => {
 
           <View style={styles.altButtons}>
             <Button
-              text="Login con Google"
+              text="Crear cuenta con Google"
               size="xl"
               variant="secondary"
               iconLeft={<Icon name="arrow-left" size={16} color="#404040" />}
             />
             <Button
-              text="Login con Facebook"
+              text="Crear cuenta con Facebook"
               size="xl"
               variant="secondary"
               iconLeft={<Icon name="arrow-left" size={16} color="#404040" />}
@@ -142,8 +172,8 @@ const LoginScreen = () => {
 
           <TouchableOpacity style={styles.footer}>
             <Text style={styles.footerText}>
-              ¿Es tu primera vez aquí?{' '}
-              <Text style={styles.link}>Crea tu cuenta</Text>
+              ¿Ya tienes una cuenta?{' '}
+              <Text style={styles.link}>Inicia Sesión</Text>
             </Text>
           </TouchableOpacity>
         </ScrollView>
@@ -165,7 +195,7 @@ const styles = StyleSheet.create({
   },
   header: {
     alignItems: 'center',
-    marginBottom: 30,
+    marginBottom: 20,
     marginTop: 100,
   },
   title: {
@@ -244,4 +274,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginScreen;
+export default SignUpScreen;

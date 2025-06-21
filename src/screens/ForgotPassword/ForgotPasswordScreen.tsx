@@ -4,33 +4,22 @@ import {
   Text,
   TextInput,
   StyleSheet,
-  TouchableOpacity,
   SafeAreaView,
   ScrollView,
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome5';
-import IconFE from 'react-native-vector-icons/Feather';
 import Button from '../../components/Button';
 import LoginScreenLogo from '../../assets/svg/LoginScreenLogo.svg';
 
-const LoginScreen = () => {
+const ForgotPasswordScreen = () => {
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
-
   const [emailError, setEmailError] = useState('');
-  const [passwordError, setPasswordError] = useState('');
 
   const validate = () => {
     let isValid = true;
     if (!email.includes('@')) {
       setEmailError('Ingresa un email válido');
-      isValid = false;
-    }
-    if (password.length < 6) {
-      setPasswordError('La contraseña debe tener al menos 6 caracteres');
       isValid = false;
     }
     return isValid;
@@ -49,13 +38,6 @@ const LoginScreen = () => {
     }
   };
 
-  const handlePasswordChange = (text: string) => {
-    setPassword(text);
-    if (passwordError && text.length >= 6) {
-      setPasswordError('');
-    }
-  };
-
   return (
     <SafeAreaView style={styles.safeArea}>
       <KeyboardAvoidingView
@@ -66,8 +48,11 @@ const LoginScreen = () => {
           keyboardShouldPersistTaps="handled">
           <View style={styles.header}>
             <LoginScreenLogo width={108} height={108} />
-            <Text style={styles.title}>Bienvenido de nuevo ✨</Text>
-            <Text style={styles.subtitle}>Tu espacio interior te espera</Text>
+            <Text style={styles.title}>¿Olvidaste tu contraseña?</Text>
+            <Text style={styles.subtitle}>
+              No te preocupes, te ayudamos a recuperarla. Ingresa tu correo y te
+              enviaremos un enlace para restablecerla.
+            </Text>
           </View>
 
           <View style={styles.inputGroup}>
@@ -87,65 +72,14 @@ const LoginScreen = () => {
             )}
           </View>
 
-          <View style={styles.inputGroup}>
-            <Text style={styles.label}>
-              Contraseña <Text style={{color: '#EC7047'}}>*</Text>
-            </Text>
-            <View style={styles.passwordContainer}>
-              <TextInput
-                placeholder="Contraseña"
-                style={[styles.input, {flex: 1, borderWidth: 0}]}
-                value={password}
-                onChangeText={handlePasswordChange}
-                secureTextEntry={!showPassword}
-                autoCapitalize="none"
-              />
-              <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
-                <IconFE
-                  name={showPassword ? 'eye' : 'eye-off'}
-                  size={20}
-                  color="#888"
-                  style={{marginRight: 10}}
-                />
-              </TouchableOpacity>
-            </View>
-            {passwordError !== '' && (
-              <Text style={styles.error}>{passwordError}</Text>
-            )}
-          </View>
-
           <View style={styles.buttonWrapper}>
             <Button
-              text="Iniciar sesión"
+              text="Enviar Código"
               size="xl"
               variant="primary"
               onPress={handleLogin}
             />
           </View>
-
-          <Text style={styles.orText}>ó</Text>
-
-          <View style={styles.altButtons}>
-            <Button
-              text="Login con Google"
-              size="xl"
-              variant="secondary"
-              iconLeft={<Icon name="arrow-left" size={16} color="#404040" />}
-            />
-            <Button
-              text="Login con Facebook"
-              size="xl"
-              variant="secondary"
-              iconLeft={<Icon name="arrow-left" size={16} color="#404040" />}
-            />
-          </View>
-
-          <TouchableOpacity style={styles.footer}>
-            <Text style={styles.footerText}>
-              ¿Es tu primera vez aquí?{' '}
-              <Text style={styles.link}>Crea tu cuenta</Text>
-            </Text>
-          </TouchableOpacity>
         </ScrollView>
       </KeyboardAvoidingView>
     </SafeAreaView>
@@ -165,7 +99,7 @@ const styles = StyleSheet.create({
   },
   header: {
     alignItems: 'center',
-    marginBottom: 30,
+    marginBottom: 50,
     marginTop: 100,
   },
   title: {
@@ -244,4 +178,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginScreen;
+export default ForgotPasswordScreen;

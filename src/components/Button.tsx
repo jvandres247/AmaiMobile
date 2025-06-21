@@ -3,7 +3,6 @@ import {
   Text,
   TouchableOpacity,
   View,
-  StyleSheet,
   ViewStyle,
   TextStyle,
   GestureResponderEvent,
@@ -27,15 +26,15 @@ const WIDTHS: Record<ButtonSize, number> = {
   s: 120,
   m: 160,
   l: 200,
-  xl: 240,
+  xl: 370,
 };
 
 const VARIANT_STYLES: Record<
   ButtonVariant,
   {backgroundColor: string; textColor: string}
 > = {
-  primary: {backgroundColor: '#007bff', textColor: '#ffffff'},
-  secondary: {backgroundColor: '#ffcc00', textColor: '#000000'},
+  primary: {backgroundColor: '#81AD3F', textColor: '#ffffff'},
+  secondary: {backgroundColor: '#ffffff', textColor: '#404040'},
   tertiary: {backgroundColor: '#28a745', textColor: '#ffffff'},
 };
 
@@ -54,8 +53,11 @@ const Button: React.FC<ButtonProps> = ({
   const buttonStyle: ViewStyle = {
     backgroundColor: variantStyle.backgroundColor,
     width: buttonWidth,
+    height: 55,
     paddingVertical: 10,
-    borderRadius: 10,
+    borderRadius: 16,
+    borderColor: variant === 'secondary' ? '#81AD3F' : 'transparent',
+    borderWidth: variant === 'secondary' ? 1 : 0,
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
@@ -64,14 +66,17 @@ const Button: React.FC<ButtonProps> = ({
 
   const textStyle: TextStyle = {
     color: variantStyle.textColor,
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontSize: 20,
+    fontWeight: 'semibold',
     marginHorizontal: 6,
+    fontFamily: 'Poppins-SemiBold',
+    marginTop: 3,
   };
 
   const iconStyle: ViewStyle = {
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 3,
   };
 
   return (

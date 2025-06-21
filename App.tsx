@@ -1,175 +1,60 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-import Icon from 'react-native-vector-icons/Feather';
-import Button from './src/components/Button';
 import LoginScreen from './src/screens/Login/LoginScreen';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
+import LoginScreenLogo from './src/assets/svg/LoginScreenLogo.svg';
+import GradientBackground from './src/components/GradientBackground';
+import LoginScreenBio from './src/screens/Login/LoginScreenBio';
+import SignUpScreen from './src/screens/SignUp/SignUp';
+import ForgotPasswordScreen from './src/screens/ForgotPassword/ForgotPasswordScreen';
+import VerificationCodeScreen from './src/screens/ForgotPahssword/VerificationCodeScreen';
+import CustomCarousel from './src/components/CustomCarousel';
+import LoginScreenBioLogo from './src/assets/svg/LoginScreenBioLogo.svg';
 
 function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  /*
-   * To keep the template simple and small we're adding padding to prevent view
-   * from rendering under the System UI.
-   * For bigger apps the recommendation is to use `react-native-safe-area-context`:
-   * https://github.com/AppAndFlow/react-native-safe-area-context
-   *
-   * You can read more about it here:
-   * https://github.com/react-native-community/discussions-and-proposals/discussions/827
-   */
-  const safePadding = '5%';
+  const carouselData = [
+    {
+      image: <LoginScreenBioLogo width={247} height={230} />,
+      title: 'Bienvenido a Amaï ✨',
+      description: `Tu espacio para florecer desde adentro.Un lugar para cuidar tus emociones, cultivar hábitos conscientes y reconectar contigo. Florece a tu ritmo, con calma y dulzura.
+ Tu camino interior comienza aquí. ¿Estás listo para empezar?`,
+    },
+    {
+      image: <LoginScreenBioLogo width={247} height={230} />,
+      title: 'Explora, siente, crece.',
+      description:
+        'Registra cómo te sientes, recibe sugerencias para reconectar contigo, reflexiona en tu diario emocional y acompaña el crecimiento de tu planta interior.',
+    },
+    {
+      image: <LoginScreenBioLogo width={247} height={230} />,
+      title: 'Cada emoción cuenta',
+      description:
+        'Amaï te ayuda a entender tus estados de ánimo, ver tu evolución con el tiempo y florecer en tus propios ritmos.',
+    },
+    {
+      image: <LoginScreenBioLogo width={247} height={230} />,
+      title: 'Planta tu semilla',
+      description: `Este es tu espacio seguro para pausar, 
+respirar y crecer desde adentro 🌱 
+Elige tu primera planta y acompáñala 
+durante este nuevo ciclo.
+ Descubre cómo florece contigo, día a día.`,
+    },
+  ];
 
   return (
-    // <View style={backgroundStyle}>
-    //   <StatusBar
-    //     barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-    //     backgroundColor={backgroundStyle.backgroundColor}
-    //   />
-    //   <ScrollView
-    //     style={backgroundStyle}>
-    //     <View style={{paddingRight: safePadding}}>
-    //       <Header/>
-    //     </View>
-    //     <View
-    //       style={{
-    //         backgroundColor: isDarkMode ? Colors.black : Colors.white,
-    //         paddingHorizontal: safePadding,
-    //         paddingBottom: safePadding,
-    //       }}>
-    //       <Section title="Step One">
-    //         Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-    //         screen and then come back to see your edits.
-    //       </Section>
-    //       <Section title="See Your Changes">
-    //         <ReloadInstructions />
-    //       </Section>
-    //       <Section title="Debug">
-    //         <DebugInstructions />
-    //       </Section>
-    //       <Section title="Learn More">
-    //         Read the docs to discover what to do next:
-    //       </Section>
-    //       <LearnMoreLinks />
-    //     </View>
-    //   </ScrollView>
-    // </View>
-    // <View style={{padding: 20}}>
-    //   <Button
-    //     text="Boton xs"
-    //     size="xs"
-    //     variant="primary"
-    //     onPress={() => console.log('Guardado')}
-    //   />
-    //   <Button
-    //     text="Boton s"
-    //     size="s"
-    //     variant="primary"
-    //     iconLeft={<Icon name="save" size={20} color="#fff" />}
-    //     onPress={() => console.log('Guardado')}
-    //   />
-    //   <Button
-    //     text="Boton m"
-    //     size="m"
-    //     variant="primary"
-    //     iconLeft={<Icon name="save" size={20} color="#fff" />}
-    //     onPress={() => console.log('Guardado')}
-    //   />
-    //   <Button
-    //     text="Boton l"
-    //     size="l"
-    //     variant="secondary"
-    //     // iconRight={<Icon name="arrow-right" size={20} color="#000" />}
-    //     onPress={() => console.log('Siguiente')}
-    //     disabled={false}
-    //   />
-
-    //   <Button
-    //     text="Boton xl"
-    //     size="xl"
-    //     variant="tertiary"
-    //     iconRight={<Icon name="arrow-right" size={20} color="#000" />}
-    //     onPress={() => console.log('nEXT')}
-    //     disabled={false}
-    //   />
-    // </View>
-    <LoginScreen />
+    <GradientBackground variant="start">
+      {/* <LoginScreen /> */}
+      {/* <LoginScreenBio /> */}
+      {/* <SignUpScreen /> */}
+      {/* <ForgotPasswordScreen /> */}
+      {/* <VerificationCodeScreen /> */}
+      <CustomCarousel
+        data={carouselData}
+        onPrimaryAction={() => console.log('Acción principal')}
+        onSecondaryAction={() => console.log('Acción secundaria')}
+      />
+    </GradientBackground>
   );
 }
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
 export default App;
