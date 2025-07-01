@@ -12,6 +12,8 @@ import {
 } from 'react-native';
 import Button from './Button';
 
+import COLORS from '../theme/colors';
+
 const {width} = Dimensions.get('window');
 
 type CarouselItem = {
@@ -72,7 +74,9 @@ const CustomCarousel: React.FC<CarouselProps> = ({
     }
 
     return () => {
-      if (timeout) clearTimeout(timeout);
+      if (timeout) {
+        clearTimeout(timeout);
+      }
     };
   }, [currentIndex, data.length]);
 
@@ -111,7 +115,7 @@ const CustomCarousel: React.FC<CarouselProps> = ({
                 styles.indicator,
                 {
                   backgroundColor:
-                    currentIndex === index ? '#81AD3F' : '#E3E6D5',
+                    currentIndex === index ? COLORS.main : COLORS.fieldSelector,
                 },
               ]}
             />
@@ -172,7 +176,7 @@ const styles = StyleSheet.create({
   description: {
     fontSize: 16,
     textAlign: 'center',
-    color: '#404040',
+    color: COLORS.description,
     marginHorizontal: 6,
     fontFamily: 'Quicksand-Regular',
   },
@@ -206,7 +210,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#888',
   },
   buttonText: {
-    color: '#fff',
+    color: COLORS.white,
     fontSize: 16,
   },
   footer: {
@@ -220,7 +224,7 @@ const styles = StyleSheet.create({
   },
   link: {
     fontFamily: 'Quicksand-Bold',
-    color: '#81AD3F',
+    color: COLORS.links,
   },
 });
 
