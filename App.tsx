@@ -10,18 +10,25 @@ import VerificationCodeScreen from './src/screens/ForgotPassword/VerificationCod
 import LoginScreenBioLogo from './src/assets/svg/LoginScreenBioLogo.svg';
 import WelcomeScreen from './src/screens/WelcomeScreen/WelcomeScreen';
 import HomeScreen from './src/screens/HomeScreen/HomeScreen';
+import Onboarding from './src/screens/Onboarding/Onboarding';
+import RootStack from './src/navigation/RootStack';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
 function App(): React.JSX.Element {
   return (
-    <GradientBackground variant="full">
-      {/* <LoginScreen /> */}
-      {/* <LoginScreenBio /> */}
-      {/* <SignUpScreen /> */}
-      {/* <ForgotPasswordScreen /> */}
-      {/* <VerificationCodeScreen /> */}
-      {/* <WelcomeScreen /> */}
-      <HomeScreen />
-    </GradientBackground>
+    <GestureHandlerRootView style={{flex: 1}}>
+      <GradientBackground variant="full">
+        {/* <LoginScreen /> */}
+        {/* <LoginScreenBio /> */}
+        {/* <SignUpScreen /> */}
+        {/* <ForgotPasswordScreen /> */}
+        {/* <VerificationCodeScreen /> */}
+        {/* <WelcomeScreen /> */}
+        {/* <HomeScreen /> */}
+        {/* <Onboarding /> */}
+        <RootStack />
+      </GradientBackground>
+    </GestureHandlerRootView>
   );
 }
 
