@@ -1,0 +1,11 @@
+[
+  {"id": 1, "label": "Manejar mis emociones", "value": "manage-emotions"},
+  {"id": 2, "label": "Encontrar más calma o estabilidad", "value": "find-calm"},
+  {
+    "id": 3,
+    "label": "Conectar con mi interior y expresarme",
+    "value": "connect-and-express"
+  },
+  {"id": 4, "label": "Seguir mi progreso personal", "value": "track-progress"},
+  {"id": 5, "label": "Crear hábitos saludables", "value": "build-habits"}
+]
