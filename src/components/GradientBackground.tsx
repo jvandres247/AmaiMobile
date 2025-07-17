@@ -1,6 +1,7 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, ViewStyle} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import COLORS from '../theme/colors';
 
 type Variant = 'start' | 'full';
 
@@ -17,11 +18,11 @@ export default function GradientBackground({
 }: Props) {
   const variantConfig = {
     start: {
-      colors: ['#FFEEB7', '#C2E5B5', '#FFFFFF'],
+      colors: [COLORS.primaryStart, COLORS.primaryEnd, COLORS.white],
       locations: [0.08, 0.15, 0.27],
     },
     full: {
-      colors: ['#FFEEB7', '#C2E5B5', '#FFFFFF'],
+      colors: [COLORS.primaryStart, COLORS.primaryEnd, COLORS.white],
       locations: [0.2, 0.3, 0.6],
     },
   };
@@ -46,5 +47,6 @@ const styles = StyleSheet.create({
   },
   safeArea: {
     flex: 1,
+    backgroundColor: 'transparent',
   },
 });

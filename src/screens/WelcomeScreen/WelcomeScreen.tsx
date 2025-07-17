@@ -1,7 +1,7 @@
 //import liraries
 import React from 'react';
-import LoginScreenBioLogo from '../assets/svg/LoginScreenBioLogo.svg';
-import CustomCarousel from '../components/CustomCarousel';
+import LoginScreenBioLogo from '../../assets/svg/LoginScreenBioLogo.svg';
+import CustomCarousel from '../../components/CustomCarousel';
 
 const carouselData = [
   {

@@ -1,10 +1,13 @@
 import React from 'react';
 import {SafeAreaView, Text, StyleSheet} from 'react-native';
+import ScreenLayout from '../ScreenLayout/ScreenLayout';
 
 const ScreenThree = () => (
-  <SafeAreaView style={styles.container}>
-    <Text style={styles.text}>¡Pantalla 3 completada! 🎉</Text>
-  </SafeAreaView>
+  <ScreenLayout variant="start">
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.text}>¡Pantalla 3 completada! 🎉</Text>
+    </SafeAreaView>
+  </ScreenLayout>
 );
 
 const styles = StyleSheet.create({

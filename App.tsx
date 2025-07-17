@@ -1,4 +1,5 @@
 import React from 'react';
+import {StyleSheet} from 'react-native';
 
 import LoginScreen from './src/screens/Login/LoginScreen';
 import LoginScreenLogo from './src/assets/svg/LoginScreenLogo.svg';
@@ -16,20 +17,24 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
 function App(): React.JSX.Element {
   return (
-    <GestureHandlerRootView style={{flex: 1}}>
-      <GradientBackground variant="full">
-        {/* <LoginScreen /> */}
-        {/* <LoginScreenBio /> */}
-        {/* <SignUpScreen /> */}
-        {/* <ForgotPasswordScreen /> */}
-        {/* <VerificationCodeScreen /> */}
-        {/* <WelcomeScreen /> */}
-        {/* <HomeScreen /> */}
-        {/* <Onboarding /> */}
-        <RootStack />
-      </GradientBackground>
+    <GestureHandlerRootView style={styles.container}>
+      {/* <LoginScreen /> */}
+      {/* <LoginScreenBio /> */}
+      {/* <SignUpScreen /> */}
+      {/* <ForgotPasswordScreen /> */}
+      {/* <VerificationCodeScreen /> */}
+      {/* <WelcomeScreen /> */}
+      {/* <HomeScreen /> */}
+      {/* <Onboarding /> */}
+      <RootStack />
     </GestureHandlerRootView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
 
 export default App;

@@ -4,41 +4,46 @@ import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
 import Button from '../../components/Button';
 import LoginScreenBioLogo from '../../assets/svg/LoginScreenBioLogo.svg';
 
-const Onboarding = () => {
-  const handleStart = () => {
-    console.log('Iniciando sesión con biométricos...');
-  };
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../../navigation/RootStack';
+import ScreenLayout from '../ScreenLayout/ScreenLayout';
 
+type Props = NativeStackScreenProps<RootStackParamList, 'Onboarding'>;
+
+const Onboarding: React.FC<Props> = ({navigation}) => {
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <View style={styles.header}>
-        <LoginScreenBioLogo width={247} height={305} />
-        <Text style={styles.title}>¡Bienvenid@ a Amaï! 🌸</Text>
-        <Text style={styles.subtitle}>
-          Tu espacio para florecer desde adentro.
-        </Text>
-        <Text style={styles.subtitle}>
-          Para acompañarte mejor, {'\n'} ¿nos cuentas un poco sobre ti? {'\n'}{' '}
-          Así te ofreceremos herramientas, retos y {'\n'} recordatorios que
-          realmente conecten contigo.
-        </Text>
-      </View>
+    <ScreenLayout variant="full">
+      <SafeAreaView style={styles.safeArea}>
+        <View style={styles.header}>
+          <LoginScreenBioLogo width={247} height={305} />
+          <Text style={styles.title}>¡Bienvenid@ a Amaï! 🌸</Text>
+          <Text style={styles.subtitle}>
+            Tu espacio para florecer desde adentro.
+          </Text>
+          <Text style={styles.subtitle}>
+            Para acompañarte mejor, {'\n'} ¿nos cuentas un poco sobre ti? {'\n'}{' '}
+            Así te ofreceremos herramientas, retos y {'\n'} recordatorios que
+            realmente conecten contigo.
+          </Text>
+        </View>
 
-      <View style={styles.footer}>
-        <Button
-          text="Sí, quiero empezar"
-          size="xl"
-          variant="primary"
-          onPress={handleStart}
-        />
-      </View>
-    </SafeAreaView>
+        <View style={styles.footer}>
+          <Button
+            text="Sí, quiero empezar"
+            size="xl"
+            variant="primary"
+            onPress={() => navigation.navigate('ScreenOne')}
+          />
+        </View>
+      </SafeAreaView>
+    </ScreenLayout>
   );
 };
 
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
+    backgroundColor: 'transparent',
   },
   header: {
     alignItems: 'center',
