@@ -1,21 +1,24 @@
 import React from 'react';
 import {SafeAreaView, View, Text, StyleSheet} from 'react-native';
 import LoginScreenBioLogo from '../../assets/svg/LoginScreenBioLogo.svg';
+import ScreenLayout from '../ScreenLayout/ScreenLayout';
 
 const HomeScreen = () => (
-  <SafeAreaView style={styles.safeArea}>
-    <View style={styles.content}>
-      <LoginScreenBioLogo width={247} height={230} />
-      <Text style={styles.title}>¡Bienvenid@ a Amaï! 🌸</Text>
-      <Text style={styles.description}>
-        Estamos muy felices de que estés aquí. Este es tu espacio seguro para
-        sentir, crecer y florecer a tu ritmo.
-      </Text>
-      <Text style={styles.subtitle}>
-        Tu jardín emocional acaba de comenzar. 🌱✨
-      </Text>
-    </View>
-  </SafeAreaView>
+  <ScreenLayout variant="full">
+    <SafeAreaView style={styles.safeArea}>
+      <View style={styles.content}>
+        <LoginScreenBioLogo width={247} height={230} />
+        <Text style={styles.title}>¡Bienvenid@ a Amaï! 🌸</Text>
+        <Text style={styles.description}>
+          Estamos muy felices de que estés aquí. Este es tu espacio seguro para
+          sentir, crecer y florecer a tu ritmo.
+        </Text>
+        <Text style={styles.subtitle}>
+          Tu jardín emocional acaba de comenzar. 🌱✨
+        </Text>
+      </View>
+    </SafeAreaView>
+  </ScreenLayout>
 );
 
 const styles = StyleSheet.create({

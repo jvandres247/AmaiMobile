@@ -2,6 +2,9 @@
 import React from 'react';
 import LoginScreenBioLogo from '../../assets/svg/LoginScreenBioLogo.svg';
 import CustomCarousel from '../../components/CustomCarousel';
+import ScreenLayout from '../ScreenLayout/ScreenLayout';
+import {SafeAreaView, StyleSheet} from 'react-native';
+import {useAppContext} from '../../context/AppContext';
 
 const carouselData = [
   {
@@ -34,13 +37,34 @@ durante este nuevo ciclo.
 ];
 
 const WelcomeScreen = () => {
+  const {setIsFirstTime, setInitialAuthScreen} = useAppContext();
+
+  const handleStart = () => {
+    setInitialAuthScreen('SignUpScreen');
+    setIsFirstTime(false);
+  };
+  const handleLogin = () => {
+    setInitialAuthScreen('LoginScreen');
+    setIsFirstTime(false);
+  };
   return (
-    <CustomCarousel
-      data={carouselData}
-      onPrimaryAction={() => console.log('Acción principal')}
-      onSecondaryAction={() => console.log('Acción secundaria')}
-    />
+    <ScreenLayout variant="full">
+      <SafeAreaView style={styles.safeArea}>
+        <CustomCarousel
+          data={carouselData}
+          onPrimaryAction={handleStart}
+          onSecondaryAction={handleLogin}
+        />
+      </SafeAreaView>
+    </ScreenLayout>
   );
 };
+
+const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: 'transparent',
+  },
+});
 
 export default WelcomeScreen;

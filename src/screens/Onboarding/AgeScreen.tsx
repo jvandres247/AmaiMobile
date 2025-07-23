@@ -1,13 +1,13 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, View} from 'react-native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {RootStackParamList} from '../../navigation/RootStack';
+import {OnboardingStackParamList} from '../../navigation/stacks/OnboardingStack';
 import ButtonList from '../../components/ButtonList';
 import ScreenLayout from '../ScreenLayout/ScreenLayout';
 
-type Props = NativeStackScreenProps<RootStackParamList, 'ScreenOne'>;
+type Props = NativeStackScreenProps<OnboardingStackParamList, 'AgeScreen'>;
 
-const ScreenOne: React.FC<Props> = ({navigation}) => {
+const AgeScreen: React.FC<Props> = ({navigation}) => {
   const items = ['🍔 Hamburguesa', '🌮 Taco', '🥗 Ensalada'];
 
   return (
@@ -16,11 +16,10 @@ const ScreenOne: React.FC<Props> = ({navigation}) => {
         {/* Lista principal */}
         <ButtonList data={items} onPressItem={label => console.log(label)} />
 
-        {/* Botón “Siguiente” pegado abajo */}
         <View style={styles.bottom}>
           <ButtonList
             data={['Siguiente']}
-            onPressItem={() => navigation.navigate('ScreenTwo')}
+            onPressItem={() => navigation.navigate('GenderScreen')}
           />
         </View>
       </SafeAreaView>
@@ -30,7 +29,7 @@ const ScreenOne: React.FC<Props> = ({navigation}) => {
 
 const styles = StyleSheet.create({
   container: {flex: 1, padding: 16, backgroundColor: 'transparent'},
-  bottom: {marginTop: 'auto'}, // empuja al final (flex‑end)
+  bottom: {marginTop: 'auto'},
 });
 
-export default ScreenOne;
+export default AgeScreen;

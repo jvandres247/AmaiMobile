@@ -1,13 +1,16 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, View} from 'react-native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {RootStackParamList} from '../../navigation/RootStack';
+import {OnboardingStackParamList} from '../../navigation/stacks/OnboardingStack';
 import ButtonList from '../../components/ButtonList';
 import ScreenLayout from '../ScreenLayout/ScreenLayout';
 
-type Props = NativeStackScreenProps<RootStackParamList, 'ScreenTwo'>;
+type Props = NativeStackScreenProps<
+  OnboardingStackParamList,
+  'ManageEmotionScreen'
+>;
 
-const ScreenTwo: React.FC<Props> = ({navigation}) => {
+const ManageEmotionScreen: React.FC<Props> = ({navigation}) => {
   const items = ['⚽ Fútbol', '🏎️ Fórmula 1', '🎮 Videojuegos'];
 
   return (
@@ -26,7 +29,9 @@ const ScreenTwo: React.FC<Props> = ({navigation}) => {
           <View style={styles.flexOne}>
             <ButtonList
               data={['Siguiente']}
-              onPressItem={() => navigation.navigate('ScreenThree')}
+              onPressItem={() =>
+                navigation.navigate('ConfigNotificationScreen')
+              }
             />
           </View>
         </View>
@@ -45,4 +50,4 @@ const styles = StyleSheet.create({
   flexOne: {flex: 1},
 });
 
-export default ScreenTwo;
+export default ManageEmotionScreen;

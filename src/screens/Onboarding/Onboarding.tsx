@@ -1,16 +1,16 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
 
 import Button from '../../components/Button';
 import LoginScreenBioLogo from '../../assets/svg/LoginScreenBioLogo.svg';
 
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {RootStackParamList} from '../../navigation/RootStack';
+import {OnboardingStackParamList} from '../../navigation/stacks/OnboardingStack';
 import ScreenLayout from '../ScreenLayout/ScreenLayout';
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Onboarding'>;
+type Props = NativeStackScreenProps<OnboardingStackParamList, 'Onboarding'>;
 
-const Onboarding: React.FC<Props> = ({navigation}) => {
+const Onboarding: FC<Props> = ({navigation}) => {
   return (
     <ScreenLayout variant="full">
       <SafeAreaView style={styles.safeArea}>
@@ -32,7 +32,7 @@ const Onboarding: React.FC<Props> = ({navigation}) => {
             text="Sí, quiero empezar"
             size="xl"
             variant="primary"
-            onPress={() => navigation.navigate('ScreenOne')}
+            onPress={() => navigation.navigate('AgeScreen')}
           />
         </View>
       </SafeAreaView>
