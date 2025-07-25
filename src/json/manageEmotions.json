@@ -11,6 +11,5 @@
     "value": "talk-to-someone"
   },
   {"id": 4, "label": "Medito o respiro", "value": "meditate-and-breathe"},
-  {"id": 5, "label": "Me cuesta expresarlar", "value": "struggle-to-express"},
-  {"id": 6, "label": "No tengo una estrategia definida", "value": "no-strategy"}
+  {"id": 5, "label": "Me cuesta expresarlar", "value": "struggle-to-express"}
 ]

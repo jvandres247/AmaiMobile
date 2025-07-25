@@ -17,6 +17,8 @@ const COLORS = {
   fieldSelector: '#E3E6D5',
   fieldError: '#FFDADF',
   white: '#FFFFFF',
+  black: '#000000',
+  silverGray: '#D9D9D9',
 
   // --- Emotions ---
   joy: '#FFDB6C',

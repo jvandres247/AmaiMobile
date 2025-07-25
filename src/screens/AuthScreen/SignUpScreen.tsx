@@ -17,10 +17,12 @@ import LoginScreenLogo from '../../assets/svg/LoginScreenLogo.svg';
 import ScreenLayout from '../ScreenLayout/ScreenLayout';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AuthStackParamList} from '../../navigation/stacks/AuthStack';
+import {useAppContext} from '../../context/AppContext';
 
 type Props = NativeStackScreenProps<AuthStackParamList, 'SignUpScreen'>;
 
 const SignUpScreen: FC<Props> = ({navigation}) => {
+  const {setIsLoggedIn} = useAppContext();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -49,7 +51,7 @@ const SignUpScreen: FC<Props> = ({navigation}) => {
 
   const handleLogin = () => {
     if (validate()) {
-      console.log('Iniciando sesión...');
+      setIsLoggedIn(true);
     }
   };
 

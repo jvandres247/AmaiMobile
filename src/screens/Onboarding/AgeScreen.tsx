@@ -1,27 +1,31 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, View} from 'react-native';
+import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {OnboardingStackParamList} from '../../navigation/stacks/OnboardingStack';
 import ButtonList from '../../components/ButtonList';
 import ScreenLayout from '../ScreenLayout/ScreenLayout';
+import ageOptions from '../../json/ageRanges.json';
+import LoginScreenLogo from '../../assets/svg/LoginScreenLogo.svg';
+import COLORS from '../../theme/colors';
 
 type Props = NativeStackScreenProps<OnboardingStackParamList, 'AgeScreen'>;
 
 const AgeScreen: React.FC<Props> = ({navigation}) => {
-  const items = ['🍔 Hamburguesa', '🌮 Taco', '🥗 Ensalada'];
+  const handleAgeSelection = (value: string) => {
+    console.log('Edad seleccionada', `Valor: ${value}`);
+    navigation.navigate('GenderScreen');
+  };
 
   return (
     <ScreenLayout variant="start">
       <SafeAreaView style={styles.container}>
-        {/* Lista principal */}
-        <ButtonList data={items} onPressItem={label => console.log(label)} />
-
-        <View style={styles.bottom}>
-          <ButtonList
-            data={['Siguiente']}
-            onPressItem={() => navigation.navigate('GenderScreen')}
-          />
+        <View style={styles.header}>
+          <LoginScreenLogo width={108} height={108} style={styles.logo} />
+          <Text style={styles.subtitle}>Conectemos contigo</Text>
+          <Text style={styles.title}>¿Cuál es tu rango de edad?</Text>
+          <Text style={styles.subtitle}>(Selecciona una opción)</Text>
         </View>
+        <ButtonList data={ageOptions} onPressItem={handleAgeSelection} />
       </SafeAreaView>
     </ScreenLayout>
   );
@@ -29,7 +33,27 @@ const AgeScreen: React.FC<Props> = ({navigation}) => {
 
 const styles = StyleSheet.create({
   container: {flex: 1, padding: 16, backgroundColor: 'transparent'},
-  bottom: {marginTop: 'auto'},
+  header: {
+    alignItems: 'center',
+    marginBottom: 20,
+    marginTop: 20,
+  },
+  logo: {
+    marginBottom: 20,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: '600',
+    fontFamily: 'Poppins-SemiBold',
+    marginBottom: 10,
+    marginTop: 10,
+  },
+  subtitle: {
+    fontSize: 16,
+    fontFamily: 'Quicksand-Regular',
+    color: COLORS.description,
+    textAlign: 'center',
+  },
 });
 
 export default AgeScreen;
