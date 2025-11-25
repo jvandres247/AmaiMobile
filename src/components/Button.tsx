@@ -35,7 +35,7 @@ const VARIANT_STYLES: Record<
 > = {
   primary: {backgroundColor: '#81AD3F', textColor: '#ffffff'},
   secondary: {backgroundColor: '#ffffff', textColor: '#404040'},
-  tertiary: {backgroundColor: '#28a745', textColor: '#ffffff'},
+  tertiary: {backgroundColor: '#018454', textColor: '#ffffff'},
 };
 
 const Button: React.FC<ButtonProps> = ({

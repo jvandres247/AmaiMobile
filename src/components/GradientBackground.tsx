@@ -3,7 +3,7 @@ import {SafeAreaView, StyleSheet, ViewStyle} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import COLORS from '../theme/colors';
 
-type Variant = 'start' | 'full';
+type Variant = 'start' | 'full' | 'emotion';
 
 type Props = {
   children: React.ReactNode;
@@ -18,12 +18,16 @@ export default function GradientBackground({
 }: Props) {
   const variantConfig = {
     start: {
-      colors: [COLORS.primaryStart, COLORS.primaryEnd, COLORS.white],
+      colors: [COLORS.primaryStart, COLORS.primaryEnd, COLORS.fieldEmpty],
       locations: [0.08, 0.15, 0.27],
     },
     full: {
-      colors: [COLORS.primaryStart, COLORS.primaryEnd, COLORS.white],
+      colors: [COLORS.primaryStart, COLORS.primaryEnd, COLORS.fieldEmpty],
       locations: [0.2, 0.3, 0.6],
+    },
+    emotion: {
+      colors: [COLORS.secondaryStart, COLORS.secondaryEnd, COLORS.white],
+      locations: [0.13, 0.2, 0.45],
     },
   };
 

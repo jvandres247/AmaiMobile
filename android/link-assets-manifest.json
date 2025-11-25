@@ -2,6 +2,46 @@
   "migIndex": 1,
   "data": [
     {
+      "path": "src/assets/fonts/Lato-Black.ttf",
+      "sha1": "a001eb827743636e04f8efa7d4aeedf0541c46ac"
+    },
+    {
+      "path": "src/assets/fonts/Lato-BlackItalic.ttf",
+      "sha1": "b490ec02c69bb74f5b4f487c59e984891c8da71c"
+    },
+    {
+      "path": "src/assets/fonts/Lato-Bold.ttf",
+      "sha1": "542498221d97bee5bdbccf86ee8890bf8e8005c9"
+    },
+    {
+      "path": "src/assets/fonts/Lato-BoldItalic.ttf",
+      "sha1": "6bf491e78e16d3b9c8a55752e1bd658e15ed7f19"
+    },
+    {
+      "path": "src/assets/fonts/Lato-Italic.ttf",
+      "sha1": "190187b720ec2f2ff2e4281237e301000e09673f"
+    },
+    {
+      "path": "src/assets/fonts/Lato-Light.ttf",
+      "sha1": "ad0d178564445a535b15d417f5b18019923d3bab"
+    },
+    {
+      "path": "src/assets/fonts/Lato-LightItalic.ttf",
+      "sha1": "34388d9a3b64380c9f08d424d0adaa88a0d1650a"
+    },
+    {
+      "path": "src/assets/fonts/Lato-Regular.ttf",
+      "sha1": "e923c72eda5e50a87e18ff5c71e9ef4b3b6455a3"
+    },
+    {
+      "path": "src/assets/fonts/Lato-Thin.ttf",
+      "sha1": "07290446bee3f81ce501a3c3dbfde6097c70ca15"
+    },
+    {
+      "path": "src/assets/fonts/Lato-ThinItalic.ttf",
+      "sha1": "ff4a1a9fe2dcc41d993f4c5067a3baa1c456ff97"
+    },
+    {
       "path": "src/assets/fonts/Poppins-Black.ttf",
       "sha1": "645e04c53c6b5b35bce654a811ebce16af8aa721"
     },
@@ -92,6 +132,78 @@
     {
       "path": "src/assets/fonts/Quicksand-SemiBold.ttf",
       "sha1": "339f8d3e09ad271ff12727eef33a99f7a066eee3"
+    },
+    {
+      "path": "src/assets/fonts/Raleway-Black.ttf",
+      "sha1": "d1f56b87671fa8bfbd03168bb85316f82de0fa6a"
+    },
+    {
+      "path": "src/assets/fonts/Raleway-BlackItalic.ttf",
+      "sha1": "744b0a25204d4cf0cc710c774e0710891876aec7"
+    },
+    {
+      "path": "src/assets/fonts/Raleway-Bold.ttf",
+      "sha1": "633fc874da0a04f51950f11729651f14718778d4"
+    },
+    {
+      "path": "src/assets/fonts/Raleway-BoldItalic.ttf",
+      "sha1": "cc2e776c8131c6356341a54aaf897c066b62ea38"
+    },
+    {
+      "path": "src/assets/fonts/Raleway-ExtraBold.ttf",
+      "sha1": "0aaae506e95b620dbfb937ed0f9e6a3ec559a825"
+    },
+    {
+      "path": "src/assets/fonts/Raleway-ExtraBoldItalic.ttf",
+      "sha1": "acb468c4ef7c4561fd5984af2fbd23d8818256ad"
+    },
+    {
+      "path": "src/assets/fonts/Raleway-ExtraLight.ttf",
+      "sha1": "00337c32e0fdf29c034ce293ac5e0c26b64223f2"
+    },
+    {
+      "path": "src/assets/fonts/Raleway-ExtraLightItalic.ttf",
+      "sha1": "96197b9468ea120ad74211fceb2a7a63e7f2cf92"
+    },
+    {
+      "path": "src/assets/fonts/Raleway-Italic.ttf",
+      "sha1": "269491e4c52d9b8d7a5afb8e186f956a025f7a15"
+    },
+    {
+      "path": "src/assets/fonts/Raleway-Light.ttf",
+      "sha1": "3da11b2e3b5f6c6b2e1b56e88de643353f4022c1"
+    },
+    {
+      "path": "src/assets/fonts/Raleway-LightItalic.ttf",
+      "sha1": "e818541a91cfd298463433b20f52eca5c5b3da3a"
+    },
+    {
+      "path": "src/assets/fonts/Raleway-Medium.ttf",
+      "sha1": "a9a82617db2caca029742885ea86e2384b512dc7"
+    },
+    {
+      "path": "src/assets/fonts/Raleway-MediumItalic.ttf",
+      "sha1": "38021041e795aebac9e3a961a1c19df0695eed2e"
+    },
+    {
+      "path": "src/assets/fonts/Raleway-Regular.ttf",
+      "sha1": "de56c2d00968cb63feda2bdf924a90b7079eec48"
+    },
+    {
+      "path": "src/assets/fonts/Raleway-SemiBold.ttf",
+      "sha1": "60b619bc3a65fbd7497eebca05550e916fbb0ac9"
+    },
+    {
+      "path": "src/assets/fonts/Raleway-SemiBoldItalic.ttf",
+      "sha1": "c42b7304f432bea3c6e2177c9ab20ff6dbf1777d"
+    },
+    {
+      "path": "src/assets/fonts/Raleway-Thin.ttf",
+      "sha1": "8acc6168b15f54bcb3fe9484b1a45d803bf99d9b"
+    },
+    {
+      "path": "src/assets/fonts/Raleway-ThinItalic.ttf",
+      "sha1": "348e192a3e45a1672789fad44a2708faf91b6ee7"
     }
   ]
 }

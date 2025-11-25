@@ -10,6 +10,10 @@ const COLORS = {
   description: '#404040',
   icons: '#7D7D7D',
   links: '#81AD3F',
+  others: '#525FBF',
+  btnIcon: '#E8EFE7',
+  emphasis: '#BD627D',
+  txtLinks: '#2864DA',
 
   // --- Background ---
   borders: '#B5B5B5',

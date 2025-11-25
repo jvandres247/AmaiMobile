@@ -13,7 +13,7 @@ import GradientBackground from '../../components/GradientBackground';
 type Props = {
   children: React.ReactNode;
   style?: StyleProp<ViewStyle>;
-  variant?: 'start' | 'full';
+  variant?: 'start' | 'full' | 'emotion';
   scrollable?: boolean; // activa scroll si se necesita
 };
 
