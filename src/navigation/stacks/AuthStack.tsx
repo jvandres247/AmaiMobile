@@ -3,12 +3,14 @@ import LoginScreen from '../../screens/AuthScreen/LoginScreen';
 import SignUpScreen from '../../screens/AuthScreen/SignUpScreen';
 import ForgotPasswordScreen from '../../screens/AuthScreen/ForgotPasswordScreen';
 import VerificationCodeScreen from '../../screens/AuthScreen/VerificationCodeScreen';
+import ChangePasswordScreen from '../../screens/AuthScreen/ChangePasswordScreen';
 
 export type AuthStackParamList = {
   SignUpScreen: any;
   LoginScreen: any;
   ForgotPasswordScreen: any;
   VerificationCodeScreen: any;
+  ChangePasswordScreen: any;
 };
 
 type Props = {
@@ -31,6 +33,10 @@ const AuthStack = ({initialAuthScreen}: Props) => {
       <Stack.Screen
         name="VerificationCodeScreen"
         component={VerificationCodeScreen}
+      />
+      <Stack.Screen
+        name="ChangePasswordScreen"
+        component={ChangePasswordScreen}
       />
     </Stack.Navigator>
   );

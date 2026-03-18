@@ -10,7 +10,6 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome5';
 import IconFE from 'react-native-vector-icons/Feather';
 import Button from '../../components/Button';
 import LoginScreenLogo from '../../assets/svg/LoginScreenLogo.svg';
@@ -19,40 +18,36 @@ import {useAppContext} from '../../context/AppContext';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AuthStackParamList} from '../../navigation/stacks/AuthStack';
 
-type Props = NativeStackScreenProps<AuthStackParamList, 'LoginScreen'>;
+type Props = NativeStackScreenProps<AuthStackParamList, 'ChangePasswordScreen'>;
 
-const LoginScreen: FC<Props> = ({navigation}) => {
+const ChangePasswordScreen: FC<Props> = ({navigation}) => {
   const {setIsLoggedIn} = useAppContext();
-  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordConfirm, setPasswordConfirm] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
 
-  const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
   const validate = () => {
     let isValid = true;
-    if (!email.includes('@')) {
-      setEmailError('Ingresa un email válido');
-      isValid = false;
-    }
+
     if (password.length < 6) {
       setPasswordError('La contraseña debe tener al menos 6 caracteres');
+      isValid = false;
+    }
+
+    if (password !== passwordConfirm) {
+      setPasswordError('Las contraseñas no coinciden');
       isValid = false;
     }
     return isValid;
   };
 
-  const handleLogin = () => {
+  const handleChangePassword = () => {
     if (validate()) {
-      setIsLoggedIn(true);
-    }
-  };
-
-  const handleEmailChange = (text: string) => {
-    setEmail(text);
-    if (emailError && text.includes('@')) {
-      setEmailError('');
+      //setIsLoggedIn(true);
+      navigation.navigate('LoginScreen');
     }
   };
 
@@ -74,25 +69,7 @@ const LoginScreen: FC<Props> = ({navigation}) => {
             keyboardShouldPersistTaps="handled">
             <View style={styles.header}>
               <LoginScreenLogo width={108} height={108} />
-              <Text style={styles.title}>Bienvenido de nuevo ✨</Text>
-              <Text style={styles.subtitle}>Tu espacio interior te espera</Text>
-            </View>
-
-            <View style={styles.inputGroup}>
-              <Text style={styles.label}>
-                Correo electrónico <Text style={{color: '#EC7047'}}>*</Text>
-              </Text>
-              <TextInput
-                placeholder="Correo electrónico"
-                style={styles.input}
-                value={email}
-                onChangeText={handleEmailChange}
-                keyboardType="email-address"
-                autoCapitalize="none"
-              />
-              {emailError !== '' && (
-                <Text style={styles.error}>{emailError}</Text>
-              )}
+              <Text style={styles.title}>Cambiar contraseña 🌱</Text>
             </View>
 
             <View style={styles.inputGroup}>
@@ -123,49 +100,42 @@ const LoginScreen: FC<Props> = ({navigation}) => {
               )}
             </View>
 
+            <View style={styles.inputGroup}>
+              <Text style={styles.label}>
+                Confirmar contraseña <Text style={{color: '#EC7047'}}>*</Text>
+              </Text>
+              <View style={styles.passwordContainer}>
+                <TextInput
+                  placeholder="Confirmar contraseña"
+                  style={[styles.input, {flex: 1, borderWidth: 0}]}
+                  value={passwordConfirm}
+                  onChangeText={setPasswordConfirm}
+                  secureTextEntry={!showPasswordConfirm}
+                  autoCapitalize="none"
+                />
+                <TouchableOpacity
+                  onPress={() => setShowPasswordConfirm(!showPasswordConfirm)}>
+                  <IconFE
+                    name={showPasswordConfirm ? 'eye' : 'eye-off'}
+                    size={20}
+                    color="#888"
+                    style={{marginRight: 10}}
+                  />
+                </TouchableOpacity>
+              </View>
+              {passwordError !== '' && (
+                <Text style={styles.error}>{passwordError}</Text>
+              )}
+            </View>
+
             <View style={styles.buttonWrapper}>
               <Button
-                text="Iniciar sesión"
+                text="Guardar Contraseña"
                 size="xl"
                 variant="primary"
-                onPress={handleLogin}
+                onPress={handleChangePassword}
               />
             </View>
-
-            <Text style={styles.orText}>ó</Text>
-
-            <View style={styles.altButtons}>
-              <Button
-                text="Login con Google"
-                size="xl"
-                variant="secondary"
-                iconLeft={<Icon name="arrow-left" size={16} color="#404040" />}
-              />
-              <Button
-                text="Login con Facebook"
-                size="xl"
-                variant="secondary"
-                iconLeft={<Icon name="arrow-left" size={16} color="#404040" />}
-              />
-            </View>
-
-            <TouchableOpacity
-              style={styles.footer}
-              onPress={() => navigation.navigate('SignUpScreen')}>
-              <Text style={styles.footerText}>
-                ¿Es tu primera vez aquí?{' '}
-                <Text style={styles.link}>Crea tu cuenta</Text>
-              </Text>
-            </TouchableOpacity>
-            <Text style={styles.orText}>ó</Text>
-            <TouchableOpacity
-              style={styles.footer}
-              onPress={() => navigation.navigate('ForgotPasswordScreen')}>
-              <Text style={styles.footerText}>
-                ¿Olvidaste tu contraseña?{' '}
-                <Text style={styles.link}>Recupérala</Text>
-              </Text>
-            </TouchableOpacity>
           </ScrollView>
         </KeyboardAvoidingView>
       </SafeAreaView>
@@ -265,4 +235,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginScreen;
+export default ChangePasswordScreen;

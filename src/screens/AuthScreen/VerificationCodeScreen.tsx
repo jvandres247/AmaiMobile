@@ -5,7 +5,6 @@ import React, {useState} from 'react';
 import {
   View,
   Text,
-  TextInput,
   StyleSheet,
   TouchableOpacity,
   SafeAreaView,
@@ -14,20 +13,26 @@ import {
   Platform,
   Alert,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome5';
-import IconFE from 'react-native-vector-icons/Feather';
-import Button from '../../components/Button';
 import LoginScreenLogo from '../../assets/svg/LoginScreenLogo.svg';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {AuthStackParamList} from '../../navigation/stacks/AuthStack';
+import ScreenLayout from '../ScreenLayout/ScreenLayout';
 
-const VerificationCodeScreen: React.FC = () => {
+type Props = NativeStackScreenProps<
+  AuthStackParamList,
+  'VerificationCodeScreen'
+>;
+
+const VerificationCodeScreen: React.FC<Props> = ({navigation}) => {
   const {code, inputsRef, timer, updateCode, reset} =
-    useVerificationCodeInput(4);
+    useVerificationCodeInput(6);
 
   const [isInvalid, setIsInvalid] = useState(false);
 
   const handleComplete = (value: string) => {
-    if (value === '1234') {
+    if (value === '123456') {
       Alert.alert('✅ Código correcto');
+      navigation.navigate('ChangePasswordScreen');
       setIsInvalid(false);
     } else {
       setIsInvalid(true);
@@ -41,69 +46,62 @@ const VerificationCodeScreen: React.FC = () => {
   };
 
   return (
-    // <View style={styles.container}>
-    //   <Text style={styles.title}>
-    //     Ingresa el código que enviamos a tu teléfono
-    //   </Text>
+    <ScreenLayout variant="start">
+      <SafeAreaView style={styles.safeArea}>
+        <KeyboardAvoidingView
+          style={styles.flex}
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+          <ScrollView
+            contentContainerStyle={styles.scrollContainer}
+            keyboardShouldPersistTaps="handled">
+            <View style={styles.header}>
+              <LoginScreenLogo width={108} height={108} />
+              <Text style={styles.title}>
+                Ingresa el código de verificación
+              </Text>
+              <Text style={styles.subtitle}>
+                Te hemos enviado un código de 4 dígitos a tu correo electrónico
+              </Text>
+              <Text style={styles.subtitle}>
+                {' '}
+                Por favor, introdúcelo aquí para continuar con el
+                restablecimiento de tu contraseña.
+              </Text>
+            </View>
 
-    //   <VerificationCodeInput
-    //     code={code}
-    //     inputsRef={inputsRef}
-    //     isInvalid={isInvalid}
-    //     errorMessage={isInvalid ? 'Código incorrecto. Intenta de nuevo.' : ''}
-    //     timer={timer}
-    //     onChange={updateCode}
-    //     onBackspace={(index: number) => updateCode(index - 1, '')}
-    //     onComplete={handleComplete}
-    //     onResend={handleResend}
-    //   />
-    // </View>
+            <View style={styles.inputGroup}>
+              <VerificationCodeInput
+                code={code}
+                inputsRef={inputsRef}
+                isInvalid={isInvalid}
+                errorMessage={
+                  isInvalid ? 'Código incorrecto. Intenta de nuevo.' : ''
+                }
+                timer={timer}
+                onChange={updateCode}
+                onBackspace={(index: number) => updateCode(index - 1, '')}
+                onComplete={handleComplete}
+                onResend={handleResend}
+              />
+            </View>
 
-    <SafeAreaView style={styles.safeArea}>
-      <KeyboardAvoidingView
-        style={styles.flex}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-        <ScrollView
-          contentContainerStyle={styles.scrollContainer}
-          keyboardShouldPersistTaps="handled">
-          <View style={styles.header}>
-            <LoginScreenLogo width={108} height={108} />
-            <Text style={styles.title}>Ingresa el código de verificación</Text>
-            <Text style={styles.subtitle}>
-              Te hemos enviado un código de 4 dígitos a tu correo electrónico
-            </Text>
-            <Text style={styles.subtitle}>
-              {' '}
-              Por favor, introdúcelo aquí para continuar con el restablecimiento
-              de tu contraseña.
-            </Text>
-          </View>
-
-          <View style={styles.inputGroup}>
-            <VerificationCodeInput
-              code={code}
-              inputsRef={inputsRef}
-              isInvalid={isInvalid}
-              errorMessage={
-                isInvalid ? 'Código incorrecto. Intenta de nuevo.' : ''
-              }
-              timer={timer}
-              onChange={updateCode}
-              onBackspace={(index: number) => updateCode(index - 1, '')}
-              onComplete={handleComplete}
-              onResend={handleResend}
-            />
-          </View>
-
-          {/* <TouchableOpacity style={styles.footer}>
-            <Text style={styles.footerText}>
-              ¿No recibiste el código?{' '}
-              <Text style={styles.link}>Reenviar código</Text>
-            </Text>
-          </TouchableOpacity> */}
-        </ScrollView>
-      </KeyboardAvoidingView>
-    </SafeAreaView>
+            <TouchableOpacity
+              style={[styles.footer, timer > 0 && styles.resendButtonDisabled]}
+              onPress={handleResend}
+              disabled={timer > 0}>
+              <Text style={styles.footerText}>
+                ¿No recibiste el código?{' '}
+                <Text style={styles.link}>
+                  {timer > 0
+                    ? `Reenviar código (${timer}s)`
+                    : 'Reenviar código'}
+                </Text>
+              </Text>
+            </TouchableOpacity>
+          </ScrollView>
+        </KeyboardAvoidingView>
+      </SafeAreaView>
+    </ScreenLayout>
   );
 };
 
@@ -146,7 +144,7 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   input: {
-    backgroundColor: '#F8F8F8',
+    backgroundColor: '#D9D9D9',
     borderRadius: 8,
     padding: 12,
     fontFamily: 'Quicksand-SemiBold',
@@ -155,7 +153,7 @@ const styles = StyleSheet.create({
   passwordContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#F8F8F8',
+    backgroundColor: '#D9D9D9',
     borderRadius: 8,
     paddingLeft: 1,
   },
@@ -195,6 +193,13 @@ const styles = StyleSheet.create({
   link: {
     fontFamily: 'Quicksand-Bold',
     color: '#81AD3F',
+  },
+  resendButtonDisabled: {
+    opacity: 0.5,
+  },
+  resendButtonText: {
+    color: '#007bff',
+    fontWeight: 'bold',
   },
 });
 

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, FC} from 'react';
 import {
   View,
   Text,
@@ -12,7 +12,13 @@ import {
 import Button from '../../components/Button';
 import LoginScreenLogo from '../../assets/svg/LoginScreenLogo.svg';
 
-const ForgotPasswordScreen = () => {
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {AuthStackParamList} from '../../navigation/stacks/AuthStack';
+import ScreenLayout from '../ScreenLayout/ScreenLayout';
+
+type Props = NativeStackScreenProps<AuthStackParamList, 'ForgotPasswordScreen'>;
+
+const ForgotPasswordScreen: FC<Props> = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
 
@@ -28,6 +34,7 @@ const ForgotPasswordScreen = () => {
   const handleLogin = () => {
     if (validate()) {
       console.log('Iniciando sesión...');
+      navigation.navigate('VerificationCodeScreen');
     }
   };
 
@@ -39,50 +46,52 @@ const ForgotPasswordScreen = () => {
   };
 
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <KeyboardAvoidingView
-        style={styles.flex}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-        <ScrollView
-          contentContainerStyle={styles.scrollContainer}
-          keyboardShouldPersistTaps="handled">
-          <View style={styles.header}>
-            <LoginScreenLogo width={108} height={108} />
-            <Text style={styles.title}>¿Olvidaste tu contraseña?</Text>
-            <Text style={styles.subtitle}>
-              No te preocupes, te ayudamos a recuperarla. Ingresa tu correo y te
-              enviaremos un enlace para restablecerla.
-            </Text>
-          </View>
+    <ScreenLayout variant="start">
+      <SafeAreaView style={styles.safeArea}>
+        <KeyboardAvoidingView
+          style={styles.flex}
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+          <ScrollView
+            contentContainerStyle={styles.scrollContainer}
+            keyboardShouldPersistTaps="handled">
+            <View style={styles.header}>
+              <LoginScreenLogo width={108} height={108} />
+              <Text style={styles.title}>¿Olvidaste tu contraseña?</Text>
+              <Text style={styles.subtitle}>
+                No te preocupes, te ayudamos a recuperarla. Ingresa tu correo y
+                te enviaremos un enlace para restablecerla.
+              </Text>
+            </View>
 
-          <View style={styles.inputGroup}>
-            <Text style={styles.label}>
-              Correo electrónico <Text style={{color: '#EC7047'}}>*</Text>
-            </Text>
-            <TextInput
-              placeholder="Correo electrónico"
-              style={styles.input}
-              value={email}
-              onChangeText={handleEmailChange}
-              keyboardType="email-address"
-              autoCapitalize="none"
-            />
-            {emailError !== '' && (
-              <Text style={styles.error}>{emailError}</Text>
-            )}
-          </View>
+            <View style={styles.inputGroup}>
+              <Text style={styles.label}>
+                Correo electrónico <Text style={{color: '#EC7047'}}>*</Text>
+              </Text>
+              <TextInput
+                placeholder="Correo electrónico"
+                style={styles.input}
+                value={email}
+                onChangeText={handleEmailChange}
+                keyboardType="email-address"
+                autoCapitalize="none"
+              />
+              {emailError !== '' && (
+                <Text style={styles.error}>{emailError}</Text>
+              )}
+            </View>
 
-          <View style={styles.buttonWrapper}>
-            <Button
-              text="Enviar Código"
-              size="xl"
-              variant="primary"
-              onPress={handleLogin}
-            />
-          </View>
-        </ScrollView>
-      </KeyboardAvoidingView>
-    </SafeAreaView>
+            <View style={styles.buttonWrapper}>
+              <Button
+                text="Enviar Código"
+                size="xl"
+                variant="primary"
+                onPress={handleLogin}
+              />
+            </View>
+          </ScrollView>
+        </KeyboardAvoidingView>
+      </SafeAreaView>
+    </ScreenLayout>
   );
 };
 

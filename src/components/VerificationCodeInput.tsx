@@ -1,14 +1,13 @@
-// components/VerificationCodeInput.tsx
 import React from 'react';
 import {
   View,
   Text,
   TextInput,
   StyleSheet,
-  TouchableOpacity,
   NativeSyntheticEvent,
   TextInputKeyPressEventData,
 } from 'react-native';
+import COLORS from '../theme/colors';
 
 type Props = {
   code: string[];
@@ -27,14 +26,14 @@ export const VerificationCodeInput: React.FC<Props> = ({
   inputsRef,
   isInvalid = false,
   errorMessage = '',
-  timer,
   onChange,
   onBackspace,
   onComplete,
-  onResend,
 }) => {
   const handleChange = (text: string, index: number) => {
-    if (!/^\d?$/.test(text)) return;
+    if (!/^\d?$/.test(text)) {
+      return;
+    }
     onChange(index, text);
 
     if (text && index < code.length - 1) {
@@ -77,15 +76,6 @@ export const VerificationCodeInput: React.FC<Props> = ({
       </View>
 
       {!!errorMessage && <Text style={styles.errorText}>{errorMessage}</Text>}
-
-      <TouchableOpacity
-        style={[styles.resendButton, timer > 0 && styles.resendButtonDisabled]}
-        onPress={onResend}
-        disabled={timer > 0}>
-        <Text style={styles.resendButtonText}>
-          {timer > 0 ? `Reenviar código (${timer}s)` : 'Reenviar código'}
-        </Text>
-      </TouchableOpacity>
     </View>
   );
 };
@@ -100,12 +90,12 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   input: {
-    width: 80,
-    height: 80,
+    width: 50,
+    height: 50,
     borderRadius: 8,
-    backgroundColor: '#F8F8F8',
+    backgroundColor: COLORS.btnIcon,
     textAlign: 'center',
-    fontSize: 32,
+    fontSize: 28,
     fontFamily: 'Poppins-Regular',
   },
   inputError: {
@@ -118,15 +108,5 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'regular',
     fontFamily: 'Quicksand-Regular',
-  },
-  resendButton: {
-    marginTop: 20,
-  },
-  resendButtonDisabled: {
-    opacity: 0.5,
-  },
-  resendButtonText: {
-    color: '#007bff',
-    fontWeight: 'bold',
   },
 });

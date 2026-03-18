@@ -4,7 +4,7 @@
  */
 const COLORS = {
   // --- Actions ---
-  main: '#81AD3F',
+  main: '#018454',
   // --- Textos ---
   titles: '#1A191D',
   description: '#404040',
