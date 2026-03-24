@@ -1,0 +1,17 @@
+[
+  {
+    "label": "Planta inicial",
+    "secondLabel": "Calma Interior",
+    "value": "interior_calm"
+  },
+  {
+    "label": "Planta inicial",
+    "secondLabel": "Expresión emocional",
+    "value": "emotional_expression"
+  },
+  {
+    "label": "Planta inicial",
+    "secondLabel": "Confianza y fuerza",
+    "value": "strong_confidence"
+  }
+]

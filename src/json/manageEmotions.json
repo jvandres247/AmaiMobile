@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1,
+    "label": "Suelo escribir o llevar un diario",
+    "value": "write-diary"
+  },
+  {"id": 2, "label": "Me ayuda hacer ejercicio", "value": "exercise"},
+  {
+    "id": 3,
+    "label": "Hablo con alguien en quien confio",
+    "value": "talk-to-someone"
+  },
+  {"id": 4, "label": "Medito o respiro", "value": "meditate-and-breathe"},
+  {"id": 5, "label": "Me cuesta expresarlar", "value": "struggle-to-express"}
+]

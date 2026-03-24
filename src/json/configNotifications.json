@@ -1,0 +1,5 @@
+[
+  {"label": "Sí, diariamente", "value": "daily"},
+  {"label": "Sí, solo cuando sea necesario", "value": "only_when_needed"},
+  {"label": "Prefiero sin recordatorios", "value": "no_necessary"}
+]
