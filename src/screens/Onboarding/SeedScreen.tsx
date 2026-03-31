@@ -35,7 +35,7 @@ const SeedScreen: React.FC<Props> = ({navigation}) => {
           data={seedType}
           onPressItem={handleAgeSelection}
           icon={<LoginScreenBioLogo width={75} height={92} />}
-          type="secondary" // Assuming this is a prop to differentiate from other lists
+          type="secondary"
         />
         <View style={styles.altButtons}>
           <Button

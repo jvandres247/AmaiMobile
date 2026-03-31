@@ -38,6 +38,8 @@ const IconButtonGroup: React.FC<IconButtonGroupProps> = ({
     selectedIds || [],
   );
 
+  console.log(labels);
+
   const scales = useRef(buttons.map(() => new Animated.Value(1))).current;
 
   useEffect(() => {
@@ -88,6 +90,12 @@ const IconButtonGroup: React.FC<IconButtonGroupProps> = ({
         const active = isSelected(id);
         const label = labels?.find(l => l.id === id)?.text;
 
+        const activeStyles = {
+          backgroundColor: active ? COLORS.btnIcon : 'transparent',
+          borderWidth: active ? 1 : 0,
+          borderColor: active ? COLORS.btnIcon : 'transparent',
+        };
+
         return (
           <View key={id} style={styles.itemContainer}>
             <TouchableWithoutFeedback onPress={() => handlePress(id, index)}>
@@ -96,9 +104,7 @@ const IconButtonGroup: React.FC<IconButtonGroupProps> = ({
                   label ? styles.buttonLabel : styles.button,
                   {
                     transform: [{scale: scales[index]}],
-                    backgroundColor: active ? COLORS.btnIcon : 'transparent',
-                    borderWidth: active ? 2 : 0,
-                    borderColor: active ? COLORS.btnIcon : 'transparent',
+                    ...activeStyles,
                   },
                 ]}>
                 <Icon width={60} height={60} />
@@ -109,7 +115,7 @@ const IconButtonGroup: React.FC<IconButtonGroupProps> = ({
               <Text
                 style={[
                   styles.label,
-                  {color: active ? COLORS.btnIcon : COLORS.titles},
+                  {color: active ? COLORS.borders : COLORS.titles},
                 ]}>
                 {label}
               </Text>
@@ -126,7 +132,7 @@ export default IconButtonGroup;
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     alignItems: 'center',
     flexWrap: 'wrap',
   },
@@ -134,7 +140,7 @@ const styles = StyleSheet.create({
     gap: 1,
   },
   gapButtonLabel: {
-    gap: 25,
+    gap: 14,
   },
   itemContainer: {
     alignItems: 'center',
@@ -154,7 +160,7 @@ const styles = StyleSheet.create({
   },
   label: {
     marginTop: 11,
-    fontSize: 14,
+    fontSize: 12,
     textAlign: 'center',
     fontFamily: 'Lato-Regular',
   },
