@@ -4,11 +4,11 @@ import {AppProvider} from './src/context/AppContext';
 import RootNavigator from './src/navigation/RootNavigator';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {ApolloProvider} from '@apollo/client/react';
-import {apolloClient} from './src/graphql/client';
+import {client} from './src/graphql/client';
 
 function App(): React.JSX.Element {
   return (
-    <ApolloProvider client={apolloClient}>
+    <ApolloProvider client={client}>
       <GestureHandlerRootView style={styles.container}>
         <AppProvider>
           <RootNavigator />

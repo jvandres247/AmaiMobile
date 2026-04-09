@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		00380C05B7D3426387138169 /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83884CCCD6AC4D448769D21C /* Lato-Thin.ttf */; };
 		03E15AADE1CC403C90F18FCC /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 24B3D2C5FD7847EABC469651 /* Raleway-Regular.ttf */; };
+		04FA55B36FBB69C433A757AF /* libPods-AmaiMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F21F6491AC3724FD146EBB9 /* libPods-AmaiMobile.a */; };
 		09D26F217EEA42FF9D03C4D5 /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6430CF882CD402A944825F7 /* Lato-BlackItalic.ttf */; };
 		0E284AF856FF4D37AF018C2E /* Raleway-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6A91A51365D43D193CAFAFC /* Raleway-ExtraBoldItalic.ttf */; };
 		0FFD01267DB046A1BD5060D3 /* Poppins-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E603871CA066466F86E6E266 /* Poppins-BlackItalic.ttf */; };
@@ -53,7 +54,6 @@
 		A8B8A376F85143EA8F58B255 /* Raleway-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 517083CA307849ADBF19AED8 /* Raleway-Black.ttf */; };
 		B48F478EF40245F09E6B0FA7 /* Raleway-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BFA3DFFECE6646B9BCA83495 /* Raleway-Medium.ttf */; };
 		B4C7AB9FAFE24E0B97D3BB5E /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43C60486CD3E42398FB7BE1D /* Poppins-Regular.ttf */; };
-		BCCD4B0FAA7A1BCA8C4189FC /* libPods-AmaiMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A9B19FF0FA1286044C2BD4 /* libPods-AmaiMobile.a */; };
 		BDF391CA59AC44A586EB0666 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 650AFC5DF4EA4EF8838B8E89 /* Lato-Bold.ttf */; };
 		CAC44F53737543A6BC2D3443 /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30A4FD07DD854E64B2424922 /* Quicksand-Bold.ttf */; };
 		CBB00792D4A449428EC01961 /* Raleway-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F4D5131192146C8B6023DC5 /* Raleway-Italic.ttf */; };
@@ -68,6 +68,7 @@
 /* Begin PBXFileReference section */
 		00C76957A1AB4462907CD0F7 /* Poppins-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Black.ttf"; path = "../src/assets/fonts/Poppins-Black.ttf"; sourceTree = "<group>"; };
 		03A4ADDFBC354D10A11B141F /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-MediumItalic.ttf"; path = "../src/assets/fonts/Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
+		0F21F6491AC3724FD146EBB9 /* libPods-AmaiMobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AmaiMobile.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* AmaiMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmaiMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = AmaiMobile/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = AmaiMobile/Info.plist; sourceTree = "<group>"; };
@@ -76,6 +77,7 @@
 		24B3D2C5FD7847EABC469651 /* Raleway-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Raleway-Regular.ttf"; path = "../src/assets/fonts/Raleway-Regular.ttf"; sourceTree = "<group>"; };
 		2A578C09825C4D838385A76C /* Poppins-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Italic.ttf"; path = "../src/assets/fonts/Poppins-Italic.ttf"; sourceTree = "<group>"; };
 		2C51E3E9E13C4FD0A82E783B /* Raleway-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Raleway-SemiBold.ttf"; path = "../src/assets/fonts/Raleway-SemiBold.ttf"; sourceTree = "<group>"; };
+		2FAED4B45294970A4F68099D /* Pods-AmaiMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmaiMobile.release.xcconfig"; path = "Target Support Files/Pods-AmaiMobile/Pods-AmaiMobile.release.xcconfig"; sourceTree = "<group>"; };
 		30A4FD07DD854E64B2424922 /* Quicksand-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-Bold.ttf"; path = "../src/assets/fonts/Quicksand-Bold.ttf"; sourceTree = "<group>"; };
 		3D183FBCA8D54CD88768F135 /* Poppins-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-SemiBoldItalic.ttf"; path = "../src/assets/fonts/Poppins-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		3DC933903D64489CAC81CA24 /* Poppins-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Light.ttf"; path = "../src/assets/fonts/Poppins-Light.ttf"; sourceTree = "<group>"; };
@@ -92,7 +94,6 @@
 		5C28617A58824295A0FF3D86 /* Raleway-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Raleway-ExtraBold.ttf"; path = "../src/assets/fonts/Raleway-ExtraBold.ttf"; sourceTree = "<group>"; };
 		5C6D7E77D6D34EB88E7EF625 /* Raleway-ExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Raleway-ExtraLightItalic.ttf"; path = "../src/assets/fonts/Raleway-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
 		5EED8DCB327B48F0AA35DC61 /* Raleway-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Raleway-Bold.ttf"; path = "../src/assets/fonts/Raleway-Bold.ttf"; sourceTree = "<group>"; };
-		63A9B19FF0FA1286044C2BD4 /* libPods-AmaiMobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AmaiMobile.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		650AFC5DF4EA4EF8838B8E89 /* Lato-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Bold.ttf"; path = "../src/assets/fonts/Lato-Bold.ttf"; sourceTree = "<group>"; };
 		6939808757234121808906DD /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-BoldItalic.ttf"; path = "../src/assets/fonts/Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
 		6C99943D60B44AFFA065CE22 /* Raleway-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Raleway-LightItalic.ttf"; path = "../src/assets/fonts/Raleway-LightItalic.ttf"; sourceTree = "<group>"; };
@@ -108,12 +109,12 @@
 		9442B19B584243318EE83C51 /* Raleway-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Raleway-MediumItalic.ttf"; path = "../src/assets/fonts/Raleway-MediumItalic.ttf"; sourceTree = "<group>"; };
 		968469C2223A4FCBA388B874 /* Lato-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Italic.ttf"; path = "../src/assets/fonts/Lato-Italic.ttf"; sourceTree = "<group>"; };
 		99EBF9821E9B4E76B2D820CB /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ThinItalic.ttf"; path = "../src/assets/fonts/Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
-		A41F65587DD94CD9E32FB561 /* Pods-AmaiMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmaiMobile.release.xcconfig"; path = "Target Support Files/Pods-AmaiMobile/Pods-AmaiMobile.release.xcconfig"; sourceTree = "<group>"; };
 		A7B3E698F00F4A83A1A35DD6 /* Quicksand-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-Light.ttf"; path = "../src/assets/fonts/Quicksand-Light.ttf"; sourceTree = "<group>"; };
 		A9B288F3AB004936A8717534 /* Raleway-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Raleway-Light.ttf"; path = "../src/assets/fonts/Raleway-Light.ttf"; sourceTree = "<group>"; };
 		AA466B16D67C46DE82191B6F /* Raleway-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Raleway-ThinItalic.ttf"; path = "../src/assets/fonts/Raleway-ThinItalic.ttf"; sourceTree = "<group>"; };
 		ADA1F8C827C14FB7BEB3EE86 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Bold.ttf"; path = "../src/assets/fonts/Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		AFF06969237749559B78A61A /* Lato-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Regular.ttf"; path = "../src/assets/fonts/Lato-Regular.ttf"; sourceTree = "<group>"; };
+		B1A7D4BCA4D2F017732D4B44 /* Pods-AmaiMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmaiMobile.debug.xcconfig"; path = "Target Support Files/Pods-AmaiMobile/Pods-AmaiMobile.debug.xcconfig"; sourceTree = "<group>"; };
 		B1AFCF230B4445A78B01E17B /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraBold.ttf"; path = "../src/assets/fonts/Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
 		B52E25319CC743F8B1E4BF48 /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-ThinItalic.ttf"; path = "../src/assets/fonts/Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
 		BFA3DFFECE6646B9BCA83495 /* Raleway-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Raleway-Medium.ttf"; path = "../src/assets/fonts/Raleway-Medium.ttf"; sourceTree = "<group>"; };
@@ -123,7 +124,6 @@
 		E603871CA066466F86E6E266 /* Poppins-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-BlackItalic.ttf"; path = "../src/assets/fonts/Poppins-BlackItalic.ttf"; sourceTree = "<group>"; };
 		E6430CF882CD402A944825F7 /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-BlackItalic.ttf"; path = "../src/assets/fonts/Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
 		E6A91A51365D43D193CAFAFC /* Raleway-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Raleway-ExtraBoldItalic.ttf"; path = "../src/assets/fonts/Raleway-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
-		E8958E272DB3E3BDDE768505 /* Pods-AmaiMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmaiMobile.debug.xcconfig"; path = "Target Support Files/Pods-AmaiMobile/Pods-AmaiMobile.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F87AFF5DAF45484887C25CA9 /* Poppins-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Thin.ttf"; path = "../src/assets/fonts/Poppins-Thin.ttf"; sourceTree = "<group>"; };
 		FCCA36CFCBFD4F3399F5378F /* Quicksand-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-Medium.ttf"; path = "../src/assets/fonts/Quicksand-Medium.ttf"; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCCD4B0FAA7A1BCA8C4189FC /* libPods-AmaiMobile.a in Frameworks */,
+				04FA55B36FBB69C433A757AF /* libPods-AmaiMobile.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,7 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				63A9B19FF0FA1286044C2BD4 /* libPods-AmaiMobile.a */,
+				0F21F6491AC3724FD146EBB9 /* libPods-AmaiMobile.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -253,8 +253,8 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E8958E272DB3E3BDDE768505 /* Pods-AmaiMobile.debug.xcconfig */,
-				A41F65587DD94CD9E32FB561 /* Pods-AmaiMobile.release.xcconfig */,
+				B1A7D4BCA4D2F017732D4B44 /* Pods-AmaiMobile.debug.xcconfig */,
+				2FAED4B45294970A4F68099D /* Pods-AmaiMobile.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -266,13 +266,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "AmaiMobile" */;
 			buildPhases = (
-				26C3DD0C9EBF37B0B8D33898 /* [CP] Check Pods Manifest.lock */,
+				B9AC951256A0569BBA379E62 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				54D8B8312284398C53A0B808 /* [CP] Embed Pods Frameworks */,
-				53950B001D64B0285452FBCB /* [CP] Copy Pods Resources */,
+				8CED3804CEB46980F50ACADB /* [CP] Embed Pods Frameworks */,
+				56FC428E9D27BEB49F36FA45 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -395,7 +395,41 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		26C3DD0C9EBF37B0B8D33898 /* [CP] Check Pods Manifest.lock */ = {
+		56FC428E9D27BEB49F36FA45 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AmaiMobile/Pods-AmaiMobile-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AmaiMobile/Pods-AmaiMobile-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AmaiMobile/Pods-AmaiMobile-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8CED3804CEB46980F50ACADB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AmaiMobile/Pods-AmaiMobile-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AmaiMobile/Pods-AmaiMobile-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AmaiMobile/Pods-AmaiMobile-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B9AC951256A0569BBA379E62 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -417,40 +451,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		53950B001D64B0285452FBCB /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AmaiMobile/Pods-AmaiMobile-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AmaiMobile/Pods-AmaiMobile-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AmaiMobile/Pods-AmaiMobile-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		54D8B8312284398C53A0B808 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AmaiMobile/Pods-AmaiMobile-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AmaiMobile/Pods-AmaiMobile-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AmaiMobile/Pods-AmaiMobile-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -467,7 +467,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E8958E272DB3E3BDDE768505 /* Pods-AmaiMobile.debug.xcconfig */;
+			baseConfigurationReference = B1A7D4BCA4D2F017732D4B44 /* Pods-AmaiMobile.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -495,7 +495,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A41F65587DD94CD9E32FB561 /* Pods-AmaiMobile.release.xcconfig */;
+			baseConfigurationReference = 2FAED4B45294970A4F68099D /* Pods-AmaiMobile.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

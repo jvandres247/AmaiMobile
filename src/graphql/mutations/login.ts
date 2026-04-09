@@ -7,11 +7,12 @@ export const LOGIN_MUTATION = gql`
       idToken
       refreshToken
       user {
+        createdAt
         email
+        emailConfirmed
+        id
         name
         role
-        emailConfirmed
-        createdAt
       }
     }
   }
