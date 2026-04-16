@@ -18,11 +18,11 @@ export default function GradientBackground({
 }: Props) {
   const variantConfig = {
     start: {
-      colors: [COLORS.primaryStart, COLORS.primaryEnd, COLORS.fieldEmpty],
+      colors: [COLORS.primaryStart, COLORS.primaryEnd, COLORS.white],
       locations: [0.08, 0.15, 0.27],
     },
     full: {
-      colors: [COLORS.primaryStart, COLORS.primaryEnd, COLORS.fieldEmpty],
+      colors: [COLORS.primaryStart, COLORS.primaryEnd, COLORS.white],
       locations: [0.2, 0.3, 0.6],
     },
     emotion: {

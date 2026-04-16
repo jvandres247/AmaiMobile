@@ -15,20 +15,22 @@ import IconFE from 'react-native-vector-icons/Feather';
 import Button from '../../components/Button';
 import LoginScreenLogo from '../../assets/svg/LoginScreenLogo.svg';
 import ScreenLayout from '../ScreenLayout/ScreenLayout';
-import {useAppContext} from '../../context/AppContext';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AuthStackParamList} from '../../navigation/stacks/AuthStack';
+
+import {useLogin} from '../../hooks/useLogin';
 
 type Props = NativeStackScreenProps<AuthStackParamList, 'LoginScreen'>;
 
 const LoginScreen: FC<Props> = ({navigation}) => {
-  const {setIsLoggedIn} = useAppContext();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
+
+  const {login, loading, error} = useLogin();
 
   const validate = () => {
     let isValid = true;
@@ -43,9 +45,15 @@ const LoginScreen: FC<Props> = ({navigation}) => {
     return isValid;
   };
 
-  const handleLogin = () => {
-    if (validate()) {
-      setIsLoggedIn(true);
+  const handleLogin = async () => {
+    if (!validate()) {
+      return;
+    }
+
+    try {
+      await login(email, password);
+    } catch (err) {
+      console.log(err);
     }
   };
 
@@ -123,12 +131,19 @@ const LoginScreen: FC<Props> = ({navigation}) => {
               )}
             </View>
 
+            {error && (
+              <Text style={styles.error}>
+                {error.message || 'Error al iniciar sesión'}
+              </Text>
+            )}
+
             <View style={styles.buttonWrapper}>
               <Button
-                text="Iniciar sesión"
+                text={loading ? 'Cargando...' : 'Iniciar sesión'}
                 size="xl"
                 variant="primary"
                 onPress={handleLogin}
+                disabled={loading}
               />
             </View>
 

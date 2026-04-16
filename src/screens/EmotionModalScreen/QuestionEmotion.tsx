@@ -14,11 +14,16 @@ import IconButtonGroup from '../../components/IconButtonGroup';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import {QuestionEmotionRouteProp} from '../../navigation/modals/types';
 
-//========== Emotions Text ==========
+//========== Emotions Utils ==========
 import {
   emotionSelectedText,
   emotionPhraseText,
-  emotionText,
+  emotionOptions,
+  factorOptions,
+  emotionBoxLabel,
+  emotionBoxPlaceholder,
+  iconEmotionOptions,
+  factorIconOptions,
 } from '../../utils/emotionInfo';
 
 //========== Big Emotions Icons ============
@@ -45,10 +50,27 @@ const QuestionEmotion = () => {
   const route = useRoute<QuestionEmotionRouteProp>();
 
   const [selectedEmotions, setSelectedEmotions] = useState<string[]>([]);
+  const [selectedFactors, setSelectedFactors] = useState<string[]>([]);
   const [value, onChangeText] = useState('');
 
-  const handleMultiSelect = (ids: string[]) => {
+  const handleEmotionsMultiSelect = (ids: string[]) => {
     setSelectedEmotions(prev => {
+      const added = ids.find(id => !prev.includes(id));
+      const removed = prev.find(id => !ids.includes(id));
+
+      if (added) {
+        console.log('Se agregó:', added);
+      }
+      if (removed) {
+        console.log('Se quitó:', removed);
+      }
+
+      return ids;
+    });
+  };
+
+  const handleFactorsMultiSelect = (ids: string[]) => {
+    setSelectedFactors(prev => {
       const added = ids.find(id => !prev.includes(id));
       const removed = prev.find(id => !ids.includes(id));
 
@@ -67,13 +89,10 @@ const QuestionEmotion = () => {
   const {emotion} = route.params;
 
   const handleFinish = () => {
-    // Puedes regresar al Home, o cerrar el modal
     navigation.reset({
       index: 0,
       routes: [{name: 'Home'}],
     });
-
-    // O simplemente cerrar el modal: // navigation.goBack();
   };
 
   const showBigEmotionIcon = (id: string | null) => {
@@ -140,51 +159,31 @@ const QuestionEmotion = () => {
             </View>
             <Text style={styles.centerText}>{emotionPhraseText(emotion)}</Text>
             <View style={styles.selectContainer}>
-              <Text style={styles.leftText}>{emotionPhraseText(emotion)}</Text>
+              <Text style={styles.leftText}>
+                ¿Qué otras emociones están presentes?
+              </Text>
               <IconButtonGroup
                 multiSelect
-                buttons={[
-                  {id: 'frustation', Icon: BigFrustation},
-                  {id: 'anxiety', Icon: BigAnxiety},
-                  {id: 'sad', Icon: BigSad},
-                  {id: 'neutral', Icon: BigNeutral},
-                  {id: 'calm', Icon: BigCalm},
-                ]}
-                labels={[
-                  {id: 'frustation', text: 'Frustat'},
-                  {id: 'anxiety', text: 'Anxiety'},
-                  {id: 'sad', text: 'Sad'},
-                  {id: 'neutral', text: 'Neutral'},
-                  {id: 'calm', text: 'Calm'},
-                ]}
+                buttons={iconEmotionOptions(emotion)}
+                labels={emotionOptions(emotion)}
                 selectedIds={selectedEmotions}
-                onMultiSelect={handleMultiSelect}
+                onMultiSelect={handleEmotionsMultiSelect}
               />
             </View>
             <View style={styles.selectContainer}>
-              <Text style={styles.leftText}>{emotionPhraseText(emotion)}</Text>
+              <Text style={styles.leftText}>
+                Posibles factores que influyen
+              </Text>
               <IconButtonGroup
                 multiSelect
-                buttons={[
-                  {id: 'frustation', Icon: BigFrustation},
-                  {id: 'anxiety', Icon: BigAnxiety},
-                  {id: 'sad', Icon: BigSad},
-                  {id: 'neutral', Icon: BigNeutral},
-                  {id: 'calm', Icon: BigCalm},
-                ]}
-                labels={[
-                  {id: 'frustation', text: 'Frustat'},
-                  {id: 'anxiety', text: 'Anxiety'},
-                  {id: 'sad', text: 'Sad'},
-                  {id: 'neutral', text: 'Neutral'},
-                  {id: 'calm', text: 'Calm'},
-                ]}
-                selectedIds={selectedEmotions}
-                onMultiSelect={handleMultiSelect}
+                buttons={factorIconOptions(emotion)}
+                labels={factorOptions(emotion)}
+                selectedIds={selectedFactors}
+                onMultiSelect={handleFactorsMultiSelect}
               />
             </View>
             <View style={styles.selectContainer}>
-              <Text style={styles.leftText}>{emotionPhraseText(emotion)}</Text>
+              <Text style={styles.leftText}>{emotionBoxLabel(emotion)}</Text>
               <TextInput
                 editable
                 multiline
@@ -192,7 +191,7 @@ const QuestionEmotion = () => {
                 maxLength={80}
                 onChangeText={text => onChangeText(text)}
                 value={value}
-                placeholder="useless placeholder"
+                placeholder={emotionBoxPlaceholder(emotion)}
                 style={styles.textInput}
               />
             </View>
@@ -234,7 +233,7 @@ const styles = StyleSheet.create({
   closeIcon: {
     fontSize: 22,
     fontWeight: 'bold',
-    color: '#1138B2',
+    color: COLORS.txtLinks,
   },
   center: {
     flex: 1,
@@ -279,14 +278,10 @@ const styles = StyleSheet.create({
   shadowContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-
-    // 💨 Sombra iOS
     shadowColor: '#000',
     shadowOffset: {width: 0, height: 6},
     shadowOpacity: 0.25,
     shadowRadius: 10,
-
-    // 💨 Sombra Android
     elevation: 10,
   },
   badgeContainer: {
@@ -311,10 +306,8 @@ const styles = StyleSheet.create({
   },
   textInput: {
     padding: 10,
-    borderColor: '#000',
-    borderWidth: 1,
     borderRadius: 10,
-    backgroundColor: 'red',
+    backgroundColor: COLORS.white,
     height: 75,
   },
 });

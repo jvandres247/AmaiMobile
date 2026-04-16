@@ -208,6 +208,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Raleway-Regular',
     textAlign: 'center',
     marginBottom: 30,
+    fontWeight: '600',
   },
   secondText: {
     fontSize: 16,
@@ -239,14 +240,10 @@ const styles = StyleSheet.create({
     borderRadius: 121,
     alignItems: 'center',
     justifyContent: 'center',
-
-    // 💨 Sombra iOS
     shadowColor: '#000',
     shadowOffset: {width: 0, height: 6},
     shadowOpacity: 0.25,
     shadowRadius: 10,
-
-    // 💨 Sombra Android
     elevation: 10,
   },
 });

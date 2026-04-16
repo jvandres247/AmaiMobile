@@ -1,8 +1,7 @@
-// hooks/useVerificationCodeInput.ts
 import {useEffect, useRef, useState} from 'react';
 import {TextInput} from 'react-native';
 
-export function useVerificationCodeInput(length: number = 4) {
+export function useVerificationCodeInput(length: number = 6) {
   const [code, setCode] = useState<string[]>(Array(length).fill(''));
   const [timer, setTimer] = useState(30);
   const inputsRef = useRef<(TextInput | null)[]>([]);

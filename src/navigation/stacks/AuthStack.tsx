@@ -9,7 +9,10 @@ export type AuthStackParamList = {
   SignUpScreen: any;
   LoginScreen: any;
   ForgotPasswordScreen: any;
-  VerificationCodeScreen: any;
+  VerificationCodeScreen: {
+    email: string;
+    password: string;
+  };
   ChangePasswordScreen: any;
 };
 
