@@ -3,14 +3,18 @@ import {StyleSheet} from 'react-native';
 import {AppProvider} from './src/context/AppContext';
 import RootNavigator from './src/navigation/RootNavigator';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import {ApolloProvider} from '@apollo/client/react';
+import {client} from './src/graphql/client';
 
 function App(): React.JSX.Element {
   return (
-    <GestureHandlerRootView style={styles.container}>
-      <AppProvider>
-        <RootNavigator />
-      </AppProvider>
-    </GestureHandlerRootView>
+    <ApolloProvider client={client}>
+      <GestureHandlerRootView style={styles.container}>
+        <AppProvider>
+          <RootNavigator />
+        </AppProvider>
+      </GestureHandlerRootView>
+    </ApolloProvider>
   );
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {OnboardingStackParamList} from '../../navigation/stacks/OnboardingStack';
 import ButtonList from '../../components/ButtonList';
@@ -18,7 +18,7 @@ const AgeScreen: React.FC<Props> = ({navigation}) => {
 
   return (
     <ScreenLayout variant="start">
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <View style={styles.header}>
           <LoginScreenLogo width={108} height={108} style={styles.logo} />
           <Text style={styles.subtitle}>Conectemos contigo</Text>
@@ -26,7 +26,7 @@ const AgeScreen: React.FC<Props> = ({navigation}) => {
           <Text style={styles.subtitle}>(Selecciona una opción)</Text>
         </View>
         <ButtonList data={ageOptions} onPressItem={handleAgeSelection} />
-      </SafeAreaView>
+      </View>
     </ScreenLayout>
   );
 };

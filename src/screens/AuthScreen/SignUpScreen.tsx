@@ -17,12 +17,12 @@ import LoginScreenLogo from '../../assets/svg/LoginScreenLogo.svg';
 import ScreenLayout from '../ScreenLayout/ScreenLayout';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AuthStackParamList} from '../../navigation/stacks/AuthStack';
-import {useAppContext} from '../../context/AppContext';
+import {useRegister} from '../../hooks/useRegister';
+import {useRegisterStore} from '../../store/registerStore';
 
 type Props = NativeStackScreenProps<AuthStackParamList, 'SignUpScreen'>;
 
 const SignUpScreen: FC<Props> = ({navigation}) => {
-  const {setIsLoggedIn} = useAppContext();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -32,10 +32,13 @@ const SignUpScreen: FC<Props> = ({navigation}) => {
   const [passwordError, setPasswordError] = useState('');
   const [nameError, setNameError] = useState('');
 
+  const {register} = useRegister();
+  const {isLoading, error} = useRegisterStore();
+
   const validate = () => {
     let isValid = true;
-    if (name.length < 6) {
-      setNameError('El nombre debe tener al menos 6 caracteres');
+    if (name.length < 4) {
+      setNameError('El nombre debe tener al menos 4 caracteres');
       isValid = false;
     }
     if (!email.includes('@')) {
@@ -49,9 +52,22 @@ const SignUpScreen: FC<Props> = ({navigation}) => {
     return isValid;
   };
 
-  const handleLogin = () => {
-    if (validate()) {
-      setIsLoggedIn(true);
+  const handleRegister = async () => {
+    if (!validate()) {
+      return;
+    }
+
+    try {
+      const result = await register(name, email, password);
+
+      if (result) {
+        navigation.navigate('VerificationCodeScreen', {
+          email,
+          password,
+        });
+      }
+    } catch (err) {
+      console.log('Register error:', err);
     }
   };
 
@@ -155,12 +171,14 @@ const SignUpScreen: FC<Props> = ({navigation}) => {
               )}
             </View>
 
+            {error && <Text style={{color: 'red'}}>{error}</Text>}
+
             <View style={styles.buttonWrapper}>
               <Button
-                text="Crear cuenta"
+                text={isLoading ? 'Creando cuenta...' : 'Crear cuenta'}
                 size="xl"
                 variant="primary"
-                onPress={handleLogin}
+                onPress={handleRegister}
               />
             </View>
 
