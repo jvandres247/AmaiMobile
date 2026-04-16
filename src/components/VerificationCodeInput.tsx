@@ -15,6 +15,7 @@ type Props = {
   isInvalid?: boolean;
   errorMessage?: string;
   timer: number;
+  disabled?: boolean;
   onChange: (index: number, value: string) => void;
   onBackspace: (index: number) => void;
   onComplete: (code: string) => void;
@@ -29,6 +30,7 @@ export const VerificationCodeInput: React.FC<Props> = ({
   onChange,
   onBackspace,
   onComplete,
+  disabled,
 }) => {
   const handleChange = (text: string, index: number) => {
     if (!/^\d?$/.test(text)) {
@@ -71,6 +73,7 @@ export const VerificationCodeInput: React.FC<Props> = ({
             value={digit}
             onChangeText={text => handleChange(text, index)}
             onKeyPress={e => handleKeyPress(e, index)}
+            editable={!disabled}
           />
         ))}
       </View>

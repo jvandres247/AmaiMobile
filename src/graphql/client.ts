@@ -6,7 +6,7 @@ import {
 } from '@apollo/client';
 
 const httpLink = new HttpLink({
-  uri: 'http://192.168.1.230:4000/graphql',
+  uri: 'http://localhost:4000/graphql',
 });
 
 import {useAuthStore} from '../store/authStore';

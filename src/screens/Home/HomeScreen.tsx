@@ -27,7 +27,7 @@ import IconButton from '../../components/IconButton';
 import Button from '../../components/Button';
 import IconButtonCheck from '../../components/IconButtonCheck';
 import {useNavigation} from '@react-navigation/native';
-import {useUsers} from '../../hooks/useUserInfo';
+import {useStoredUser} from '../../utils/useStoredUser';
 
 const randomCenterPhrases = [
   'Cada emoción que abrazas es una raiz mas fuerte en tu jardin interior',
@@ -49,7 +49,6 @@ const goals = [
 ];
 
 const HomeScreen = () => {
-  const {users, loading, error} = useUsers();
   const [visible, setVisible] = useState(false);
   const navigation = useNavigation<any>();
   const getRandom = (arr: string[]) =>
@@ -60,11 +59,16 @@ const HomeScreen = () => {
   );
   const {width} = useWindowDimensions();
 
+  const {user, loading} = useStoredUser();
+
+  console.log({user});
+
   if (loading) {
     return <Text>Cargando...</Text>;
   }
-  if (error) {
-    return <Text>Error al cargar usuarios</Text>;
+
+  if (!user) {
+    return <Text>No hay usuario</Text>;
   }
 
   const handleGoalPress = ({
@@ -109,7 +113,7 @@ const HomeScreen = () => {
             <LoginScreenBioLogo width={142} height={175} />
             <CardBoard height={220} width={370} marginTop={30}>
               <Text style={[styles.title, styles.black]}>
-                ¡Hola, {users[0]?.name || 'Usuario'}!
+                ¡Hola, {user.name || 'Usuario'}!
               </Text>
               <Text style={[styles.title, styles.purple]}>
                 ¿Como te sientes hoy?

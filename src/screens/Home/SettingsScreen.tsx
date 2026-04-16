@@ -1,18 +1,29 @@
 import React from 'react';
-import {View, Text, StyleSheet, Button} from 'react-native';
-import {useCounterStore} from '../../store/useCounterStore';
+import {View, StyleSheet} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import Button from '../../components/Button';
+import {useLogout} from '../../hooks/useLogout';
 
-const SettingsScreen = () => {
-  const {count, increment, decrement} = useCounterStore();
+const SettingsScreen = ({}) => {
+  const {logout} = useLogout();
 
-  const state = useCounterStore.getState();
-  console.log(state);
+  const onCloseSesion = async () => {
+    try {
+      await logout();
+      await AsyncStorage.removeItem('auth-storage');
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   return (
     <View style={styles.container}>
-      <Text>{count}</Text>
-      <Button title="+" onPress={increment} />
-      <Button title="-" onPress={decrement} />
+      <Button
+        text="Cerrar Sesion"
+        size="xl"
+        variant="tertiary"
+        onPress={onCloseSesion}
+      />
     </View>
   );
 };
