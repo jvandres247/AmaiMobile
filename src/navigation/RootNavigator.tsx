@@ -13,6 +13,10 @@ export default function RootNavigator() {
   const {isFirstTime, completedOnboarding, initialAuthScreen} = useAppContext();
 
   const isAuthenticated = useAuthStore(s => s.isAuthenticated);
+  const hasProfile = useAuthStore(s => s.user?.hasProfile);
+
+  console.log('RootNavigator - isAuthenticated:', isAuthenticated);
+  console.log('RootNavigator - hasProfile:', hasProfile);
 
   const [isHydrated, setIsHydrated] = useState(false);
 
@@ -50,7 +54,7 @@ export default function RootNavigator() {
     );
   }
 
-  if (!completedOnboarding) {
+  if (!hasProfile && !completedOnboarding) {
     return (
       <NavigationContainer>
         <OnboardingStackScreen />

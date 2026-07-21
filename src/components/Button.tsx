@@ -56,7 +56,7 @@ const Button: React.FC<ButtonProps> = ({
     height: 55,
     paddingVertical: 10,
     borderRadius: 16,
-    borderColor: variant === 'secondary' ? '#81AD3F' : 'transparent',
+    borderColor: variant === 'secondary' ? '#018454' : 'transparent',
     borderWidth: variant === 'secondary' ? 1 : 0,
     alignItems: 'center',
     justifyContent: 'center',

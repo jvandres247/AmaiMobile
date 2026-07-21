@@ -1,9 +1,9 @@
 [
-  {"label": ">18 años", "value": "18"},
-  {"label": "18 a 24 años", "value": "18-24"},
-  {"label": "25 a 34 años", "value": "25-34"},
-  {"label": "35 a 44 años", "value": "35-44"},
-  {"label": "45 a 54 años", "value": "45-54"},
-  {"label": "55 a 64 años", "value": "55-64"},
-  {"label": "60+ años", "value": "60+"}
+  {"title": ">18 años", "id": "OVER_18"},
+  {"title": "18 a 24 años", "id": "FROM_18_TO_24"},
+  {"title": "25 a 34 años", "id": "FROM_25_TO_34"},
+  {"title": "35 a 44 años", "id": "FROM_35_TO_44"},
+  {"title": "45 a 54 años", "id": "FROM_45_TO_54"},
+  {"title": "55 a 64 años", "id": "FROM_55_TO_64"},
+  {"title": "65+ años", "id": "OVER_65"}
 ]

@@ -21,7 +21,9 @@ import ScreenLayout from '../ScreenLayout/ScreenLayout';
 
 import {useConfirmEmail} from '../../hooks/useConfirmationEmail';
 import {useVerificationStore} from '../../store/verificationStore';
+import {useResetPassword} from '../../hooks/useResetPassword';
 import {useLogin} from '../../hooks/useLogin';
+import COLORS from '../../theme/colors';
 
 type Props = NativeStackScreenProps<
   AuthStackParamList,
@@ -32,18 +34,23 @@ const VerificationCodeScreen: React.FC<Props> = ({route}: Props) => {
   const {code, inputsRef, timer, updateCode, reset} =
     useVerificationCodeInput(6);
 
-  const {email, password} = route.params;
+  const {email, password, screen} = route.params;
+
+  console.log('VerificationCodeScreen params:', {email, password, screen});
 
   const [isInvalid, setIsInvalid] = useState(false);
 
   const {confirmEmail} = useConfirmEmail();
+  const {resetPassword} = useResetPassword();
   const {isLoading, error} = useVerificationStore();
   const {login} = useLogin();
 
   const handleComplete = async (value: string) => {
     try {
       setIsInvalid(false);
-      await confirmEmail(email, value);
+      screen === 'ChangePasswordScreen'
+        ? await resetPassword(email, password, value)
+        : await confirmEmail(email, value);
       await login(email, password);
       Alert.alert('✅ Cuenta verificada', 'Bienvenido 🎉');
     } catch (err) {
@@ -173,7 +180,7 @@ const styles = StyleSheet.create({
   },
   link: {
     fontFamily: 'Quicksand-Bold',
-    color: '#81AD3F',
+    color: COLORS.main,
   },
   resendButtonDisabled: {
     opacity: 0.5,

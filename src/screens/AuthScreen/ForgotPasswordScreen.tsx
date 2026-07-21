@@ -15,12 +15,14 @@ import LoginScreenLogo from '../../assets/svg/LoginScreenLogo.svg';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AuthStackParamList} from '../../navigation/stacks/AuthStack';
 import ScreenLayout from '../ScreenLayout/ScreenLayout';
+import {useForgotPassword} from '../../hooks/useForgotPassword';
 
 type Props = NativeStackScreenProps<AuthStackParamList, 'ForgotPasswordScreen'>;
 
 const ForgotPasswordScreen: FC<Props> = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
+  const {forgotPassword} = useForgotPassword();
 
   const validate = () => {
     let isValid = true;
@@ -31,10 +33,21 @@ const ForgotPasswordScreen: FC<Props> = ({navigation}) => {
     return isValid;
   };
 
-  const handleLogin = () => {
-    if (validate()) {
-      console.log('Iniciando sesión...');
-      navigation.navigate('VerificationCodeScreen');
+  const handleLogin = async () => {
+    if (!validate()) {
+      return;
+    }
+
+    try {
+      const success = await forgotPassword(email);
+
+      if (success) {
+        navigation.navigate('ChangePasswordScreen', {
+          email,
+        });
+      }
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -84,7 +97,7 @@ const ForgotPasswordScreen: FC<Props> = ({navigation}) => {
               <Button
                 text="Enviar Código"
                 size="xl"
-                variant="primary"
+                variant="tertiary"
                 onPress={handleLogin}
               />
             </View>

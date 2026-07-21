@@ -9,13 +9,16 @@ import genderOptions from '../../json/gender.json';
 import COLORS from '../../theme/colors';
 import Button from '../../components/Button';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import {useOnboarding} from '../../hooks/useOnboarding';
 
 type Props = NativeStackScreenProps<OnboardingStackParamList, 'GenderScreen'>;
 
 const GenderScreen: React.FC<Props> = ({navigation}) => {
-  const handleGenderSelection = (value: string) => {
+  const {setGender} = useOnboarding();
+
+  const handleGenderSelection = (value: any) => {
     console.log('Genero seleccionado', `Valor: ${value}`);
-    navigation.navigate('GenderScreen');
+    setGender(value);
   };
 
   return (
@@ -39,7 +42,7 @@ const GenderScreen: React.FC<Props> = ({navigation}) => {
           <Button
             text="Siguiente"
             size="m"
-            variant="primary"
+            variant="tertiary"
             iconRight={<Icon name="arrow-right" size={16} color="#FFFFFF" />}
             onPress={() => navigation.navigate('IntentionScreen')}
           />

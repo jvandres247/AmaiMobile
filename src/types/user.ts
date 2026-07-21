@@ -4,6 +4,7 @@ export interface User {
   email: string;
   role: string;
   emailConfirmed: boolean;
+  hasProfile: boolean;
   createdAt: string;
 }
 

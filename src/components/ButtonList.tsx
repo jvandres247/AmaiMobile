@@ -9,9 +9,9 @@ import {
 import COLORS from '../theme/colors';
 
 type Item = {
-  label: string;
-  secondLabel?: string; // ✅ Nuevo campo opcional
-  value: string;
+  title: string;
+  subtitle?: string;
+  id: string;
 };
 
 type ButtonListProps = {
@@ -37,31 +37,31 @@ const ButtonList: React.FC<ButtonListProps> = ({
   const handlePress = (item: Item, e: GestureResponderEvent) => {
     if (multiselect) {
       setSelectedValues(prev => {
-        const isSelected = prev.includes(item.value);
+        const isSelected = prev.includes(item.id);
         const updated = isSelected
-          ? prev.filter(v => v !== item.value)
-          : [...prev, item.value];
-        onSelectionChange?.(updated); // ✅ Llama el callback con los valores actualizados
+          ? prev.filter(v => v !== item.id)
+          : [...prev, item.id];
+        onSelectionChange?.(updated);
 
         return updated;
       });
     } else {
-      setSelectedValue(item.value);
+      setSelectedValue(item.id);
     }
 
-    onPressItem?.(item.value, e);
+    onPressItem?.(item.id, e);
   };
 
   return (
     <View style={styles.container}>
       {data.map(item => {
         const isSelected = multiselect
-          ? selectedValues.includes(item.value)
-          : selectedValue === item.value;
+          ? selectedValues.includes(item.id)
+          : selectedValue === item.id;
 
         return type === 'secondary' ? (
           <TouchableOpacity
-            key={item.value}
+            key={item.id}
             style={[
               styles.buttonSecondary,
               isSelected && styles.selectedButton,
@@ -70,19 +70,19 @@ const ButtonList: React.FC<ButtonListProps> = ({
             <View style={icon ? styles.contentIcon : styles.content}>
               {icon && <View style={styles.iconContainer}>{icon}</View>}
               <View style={styles.contentColumn}>
-                <Text style={styles.textSecondary}>{item.label}</Text>
-                <Text style={styles.labelSecondary}>{item.secondLabel}</Text>
+                <Text style={styles.textSecondary}>{item.title}</Text>
+                <Text style={styles.labelSecondary}>{item.subtitle}</Text>
               </View>
             </View>
           </TouchableOpacity>
         ) : (
           <TouchableOpacity
-            key={item.value}
+            key={item.id}
             style={[styles.button, isSelected && styles.selectedButton]}
             onPress={e => handlePress(item, e)}>
             <View style={icon ? styles.contentIcon : styles.content}>
               {icon && <View style={styles.iconContainer}>{icon}</View>}
-              <Text style={styles.text}>{item.label}</Text>
+              <Text style={styles.text}>{item.title}</Text>
             </View>
           </TouchableOpacity>
         );

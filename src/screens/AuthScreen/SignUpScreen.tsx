@@ -19,6 +19,7 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AuthStackParamList} from '../../navigation/stacks/AuthStack';
 import {useRegister} from '../../hooks/useRegister';
 import {useRegisterStore} from '../../store/registerStore';
+import COLORS from '../../theme/colors';
 
 type Props = NativeStackScreenProps<AuthStackParamList, 'SignUpScreen'>;
 
@@ -177,7 +178,7 @@ const SignUpScreen: FC<Props> = ({navigation}) => {
               <Button
                 text={isLoading ? 'Creando cuenta...' : 'Crear cuenta'}
                 size="xl"
-                variant="primary"
+                variant="tertiary"
                 onPress={handleRegister}
               />
             </View>
@@ -187,12 +188,6 @@ const SignUpScreen: FC<Props> = ({navigation}) => {
             <View style={styles.altButtons}>
               <Button
                 text="Crear cuenta con Google"
-                size="xl"
-                variant="secondary"
-                iconLeft={<Icon name="arrow-left" size={16} color="#404040" />}
-              />
-              <Button
-                text="Crear cuenta con Facebook"
                 size="xl"
                 variant="secondary"
                 iconLeft={<Icon name="arrow-left" size={16} color="#404040" />}
@@ -223,10 +218,9 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     flexGrow: 1,
-    paddingTop: 1,
-    paddingLeft: 12,
-    paddingRight: 12,
-    paddingBottom: 10,
+    paddingTop: 5,
+    paddingLeft: 20,
+    paddingRight: 20,
   },
   header: {
     alignItems: 'center',
@@ -309,7 +303,7 @@ const styles = StyleSheet.create({
   },
   link: {
     fontFamily: 'Quicksand-Bold',
-    color: '#81AD3F',
+    color: COLORS.main,
   },
   required: {
     color: '#EC7047',

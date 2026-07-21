@@ -5,12 +5,32 @@ import {useAppContext} from '../../context/AppContext';
 import LoginScreenBioLogo from '../../assets/svg/LoginScreenBioLogo.svg';
 import COLORS from '../../theme/colors';
 import BreathingButton from '../../components/BreathingButton';
+import {useOnboarding} from '../../hooks/useOnboarding';
+import {useCompleteOnboarding} from '../../hooks/useCompleteOnboarding';
 
 const ProfileCreationScreen = () => {
   const {setCompletedOnboarding} = useAppContext();
 
   const handleHomeScreen = () => {
     setCompletedOnboarding(true);
+    handleSeedSelection();
+  };
+
+  const {input, reset} = useOnboarding();
+  const {completeOnboarding} = useCompleteOnboarding();
+
+  const handleSeedSelection = async () => {
+    try {
+      await completeOnboarding({
+        ...input,
+      });
+
+      reset();
+    } catch (error) {
+      console.error(error);
+    }
+
+    reset();
   };
 
   return (

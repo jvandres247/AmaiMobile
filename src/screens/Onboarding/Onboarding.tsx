@@ -8,9 +8,25 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {OnboardingStackParamList} from '../../navigation/stacks/OnboardingStack';
 import ScreenLayout from '../ScreenLayout/ScreenLayout';
 
+import {useEmotionOnboarding} from '../../hooks/useEmotionOnboarding';
+
 type Props = NativeStackScreenProps<OnboardingStackParamList, 'Onboarding'>;
 
 const Onboarding: FC<Props> = ({navigation}) => {
+  const {
+    emotionProcessingStyles,
+    emotionalGoals,
+    activePlants,
+    loading,
+    error,
+  } = useEmotionOnboarding();
+
+  console.log('Emotion Processing Styles:', emotionProcessingStyles);
+  console.log('Emotional Goals:', emotionalGoals);
+  console.log('Active Plants:', activePlants);
+  console.log('Loading:', loading);
+  console.log('Error:', error);
+
   return (
     <ScreenLayout variant="full">
       <SafeAreaView style={styles.safeArea}>

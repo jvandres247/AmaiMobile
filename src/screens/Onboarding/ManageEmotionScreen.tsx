@@ -8,7 +8,8 @@ import LoginScreenLogo from '../../assets/svg/LoginScreenLogo.svg';
 import COLORS from '../../theme/colors';
 import Button from '../../components/Button';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import manageEmotions from '../../json/manageEmotions.json';
+import {useEmotionOnboarding} from '../../hooks/useEmotionOnboarding';
+import {useOnboarding} from '../../hooks/useOnboarding';
 
 type Props = NativeStackScreenProps<
   OnboardingStackParamList,
@@ -16,9 +17,13 @@ type Props = NativeStackScreenProps<
 >;
 
 const ManageEmotionScreen: React.FC<Props> = ({navigation}) => {
+  const {setProcessingStyleIds} = useOnboarding();
   const handleMultipleSelection = (values: string[]) => {
     console.log('Desde el padre (función):', values);
+    setProcessingStyleIds(values);
   };
+
+  const {emotionProcessingStyles, loading, error} = useEmotionOnboarding();
 
   return (
     <ScreenLayout variant="start">
@@ -31,12 +36,19 @@ const ManageEmotionScreen: React.FC<Props> = ({navigation}) => {
           </Text>
           <Text style={styles.subtitle}>(Puedes elegir más de una opción)</Text>
         </View>
-        <ButtonList
-          data={manageEmotions}
-          onSelectionChange={handleMultipleSelection}
-          icon={<LoginScreenLogo width={40} height={40} />}
-          multiselect
-        />
+
+        {loading ? (
+          <Text>Cargando opciones...</Text>
+        ) : error ? (
+          <Text>Error al cargar opciones. Intenta de nuevo.</Text>
+        ) : (
+          <ButtonList
+            data={emotionProcessingStyles}
+            onSelectionChange={handleMultipleSelection}
+            icon={<LoginScreenLogo width={40} height={40} />}
+            multiselect
+          />
+        )}
         <View style={styles.altButtons}>
           <Button
             text="Regresar"
@@ -48,7 +60,7 @@ const ManageEmotionScreen: React.FC<Props> = ({navigation}) => {
           <Button
             text="Siguiente"
             size="m"
-            variant="primary"
+            variant="tertiary"
             iconRight={<Icon name="arrow-right" size={16} color="#FFFFFF" />}
             onPress={() => navigation.navigate('ConfigNotificationScreen')}
           />

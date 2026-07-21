@@ -14,20 +14,20 @@ import IconFE from 'react-native-vector-icons/Feather';
 import Button from '../../components/Button';
 import LoginScreenLogo from '../../assets/svg/LoginScreenLogo.svg';
 import ScreenLayout from '../ScreenLayout/ScreenLayout';
-import {useAppContext} from '../../context/AppContext';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AuthStackParamList} from '../../navigation/stacks/AuthStack';
 
 type Props = NativeStackScreenProps<AuthStackParamList, 'ChangePasswordScreen'>;
 
-const ChangePasswordScreen: FC<Props> = ({navigation}) => {
-  const {setIsLoggedIn} = useAppContext();
+const ChangePasswordScreen: FC<Props> = ({navigation, route}) => {
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
 
   const [passwordError, setPasswordError] = useState('');
+  const {email} = route.params;
+  console.log(email);
 
   const validate = () => {
     let isValid = true;
@@ -46,8 +46,11 @@ const ChangePasswordScreen: FC<Props> = ({navigation}) => {
 
   const handleChangePassword = () => {
     if (validate()) {
-      //setIsLoggedIn(true);
-      navigation.navigate('LoginScreen');
+      navigation.navigate('VerificationCodeScreen', {
+        email,
+        password,
+        screen: 'ChangePasswordScreen',
+      });
     }
   };
 
@@ -132,7 +135,7 @@ const ChangePasswordScreen: FC<Props> = ({navigation}) => {
               <Button
                 text="Guardar Contraseña"
                 size="xl"
-                variant="primary"
+                variant="tertiary"
                 onPress={handleChangePassword}
               />
             </View>
