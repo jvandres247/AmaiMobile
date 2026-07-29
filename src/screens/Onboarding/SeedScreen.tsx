@@ -9,14 +9,39 @@ import LoginScreenBioLogo from '../../assets/svg/LoginScreenBioLogo.svg';
 import COLORS from '../../theme/colors';
 import Button from '../../components/Button';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import seedType from '../../json/seedType.json';
+import {useEmotionOnboarding} from '../../hooks/useEmotionOnboarding';
+import {useOnboarding} from '../../hooks/useOnboarding';
 
 type Props = NativeStackScreenProps<OnboardingStackParamList, 'SeedScreen'>;
+interface ApiItem {
+  id: string;
+  name: string;
+  represents: string;
+}
+
+interface ComponentItem {
+  id: string;
+  title: string;
+  subtitle: string;
+}
 
 const SeedScreen: React.FC<Props> = ({navigation}) => {
+  const {setPlantId} = useOnboarding();
   const handleAgeSelection = (value: string) => {
     console.log('Semilla seleccionada', `Valor: ${value}`);
+    setPlantId(value);
   };
+
+  const {activePlants, loading, error} = useEmotionOnboarding();
+
+  const parseItems = (items: ApiItem[]): ComponentItem[] =>
+    items.map(({id, name, represents}) => ({
+      id,
+      title: name,
+      subtitle: represents,
+    }));
+
+  console.log('Active Plants desde el hook:', parseItems(activePlants));
 
   return (
     <ScreenLayout variant="start">
@@ -31,12 +56,19 @@ const SeedScreen: React.FC<Props> = ({navigation}) => {
             proceso interior.
           </Text>
         </View>
-        <ButtonList
-          data={seedType}
-          onPressItem={handleAgeSelection}
-          icon={<LoginScreenBioLogo width={75} height={92} />}
-          type="secondary"
-        />
+
+        {loading ? (
+          <Text>Cargando opciones...</Text>
+        ) : error ? (
+          <Text>Error al cargar opciones. Intenta de nuevo.</Text>
+        ) : (
+          <ButtonList
+            data={parseItems(activePlants)}
+            onPressItem={handleAgeSelection}
+            icon={<LoginScreenBioLogo width={75} height={92} />}
+            type="secondary"
+          />
+        )}
         <View style={styles.altButtons}>
           <Button
             text="Regresar"
@@ -46,9 +78,9 @@ const SeedScreen: React.FC<Props> = ({navigation}) => {
             onPress={() => navigation.goBack()}
           />
           <Button
-            text="Siguiente"
+            text="Empezar"
             size="m"
-            variant="primary"
+            variant="tertiary"
             iconRight={<Icon name="arrow-right" size={16} color="#FFFFFF" />}
             onPress={() => navigation.navigate('ProfileCreationScreen')}
           />

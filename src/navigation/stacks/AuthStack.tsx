@@ -12,8 +12,11 @@ export type AuthStackParamList = {
   VerificationCodeScreen: {
     email: string;
     password: string;
+    screen?: 'ForgotPasswordScreen' | 'ChangePasswordScreen';
   };
-  ChangePasswordScreen: any;
+  ChangePasswordScreen: {
+    email: string;
+  };
 };
 
 type Props = {

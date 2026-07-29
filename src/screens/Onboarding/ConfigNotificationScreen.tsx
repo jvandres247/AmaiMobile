@@ -9,6 +9,7 @@ import COLORS from '../../theme/colors';
 import Button from '../../components/Button';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import configNotifications from '../../json/configNotifications.json';
+import {useOnboarding} from '../../hooks/useOnboarding';
 
 type Props = NativeStackScreenProps<
   OnboardingStackParamList,
@@ -16,8 +17,10 @@ type Props = NativeStackScreenProps<
 >;
 
 const ConfigNotificationScreen: React.FC<Props> = ({navigation}) => {
-  const handleAgeSelection = (value: string) => {
+  const {setReminderPreference} = useOnboarding();
+  const handleAgeSelection = (value: any) => {
     console.log('Edad seleccionada', `Valor: ${value}`);
+    setReminderPreference(value);
   };
 
   return (
@@ -48,7 +51,7 @@ const ConfigNotificationScreen: React.FC<Props> = ({navigation}) => {
           <Button
             text="Siguiente"
             size="m"
-            variant="primary"
+            variant="tertiary"
             iconRight={<Icon name="arrow-right" size={16} color="#FFFFFF" />}
             onPress={() => navigation.navigate('SeedScreen')}
           />

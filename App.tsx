@@ -5,6 +5,13 @@ import RootNavigator from './src/navigation/RootNavigator';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {ApolloProvider} from '@apollo/client/react';
 import {client} from './src/graphql/client';
+import {GoogleSignin} from '@react-native-google-signin/google-signin';
+
+GoogleSignin.configure({
+  webClientId:
+    '932434840329-v3i1n2mq298fd5makt426ggprtnfs330.apps.googleusercontent.com',
+  offlineAccess: true,
+});
 
 function App(): React.JSX.Element {
   return (

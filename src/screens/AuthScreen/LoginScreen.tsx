@@ -17,8 +17,11 @@ import LoginScreenLogo from '../../assets/svg/LoginScreenLogo.svg';
 import ScreenLayout from '../ScreenLayout/ScreenLayout';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AuthStackParamList} from '../../navigation/stacks/AuthStack';
+import {GoogleSignin} from '@react-native-google-signin/google-signin';
 
 import {useLogin} from '../../hooks/useLogin';
+// import {useAuthGoogleStore} from '../../store/authGoogleStore';
+import COLORS from '../../theme/colors';
 
 type Props = NativeStackScreenProps<AuthStackParamList, 'LoginScreen'>;
 
@@ -68,6 +71,39 @@ const LoginScreen: FC<Props> = ({navigation}) => {
     setPassword(text);
     if (passwordError && text.length >= 6) {
       setPasswordError('');
+    }
+  };
+
+  // const setSession = useAuthGoogleStore(state => state.setSession);
+  // const [googleLogin] = useMutation(GOOGLE_LOGIN);
+
+  const handleGoogleLogin = async () => {
+    try {
+      await GoogleSignin.hasPlayServices();
+
+      const response = await GoogleSignin.signIn();
+
+      console.log('Google Sign-In response:', response);
+
+      const idToken = response.data?.idToken;
+
+      if (!idToken) {
+        throw new Error('No idToken found');
+      }
+
+      console.log({idToken});
+
+      // const result = await googleLogin({
+      //   variables: {
+      //     idToken,
+      //   },
+      // });
+
+      // const authData = result.data.googleLogin;
+
+      // setSession(authData.user, authData.token);
+    } catch (err) {
+      console.log(err);
     }
   };
 
@@ -141,7 +177,7 @@ const LoginScreen: FC<Props> = ({navigation}) => {
               <Button
                 text={loading ? 'Cargando...' : 'Iniciar sesión'}
                 size="xl"
-                variant="primary"
+                variant="tertiary"
                 onPress={handleLogin}
                 disabled={loading}
               />
@@ -155,12 +191,7 @@ const LoginScreen: FC<Props> = ({navigation}) => {
                 size="xl"
                 variant="secondary"
                 iconLeft={<Icon name="arrow-left" size={16} color="#404040" />}
-              />
-              <Button
-                text="Login con Facebook"
-                size="xl"
-                variant="secondary"
-                iconLeft={<Icon name="arrow-left" size={16} color="#404040" />}
+                onPress={handleGoogleLogin}
               />
             </View>
 
@@ -197,12 +228,13 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     flexGrow: 1,
-    padding: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
   },
   header: {
     alignItems: 'center',
     marginBottom: 30,
-    marginTop: 100,
+    marginTop: 90,
   },
   title: {
     fontSize: 20,
@@ -276,7 +308,7 @@ const styles = StyleSheet.create({
   },
   link: {
     fontFamily: 'Quicksand-Bold',
-    color: '#81AD3F',
+    color: COLORS.main,
   },
 });
 

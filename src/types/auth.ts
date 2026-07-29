@@ -27,3 +27,11 @@ export interface LoginVariables {
   email: string;
   password: string;
 }
+
+export interface ForgotPasswordVariables {
+  email: string;
+}
+
+export interface ForgotPasswordResponse {
+  forgotPassword: boolean;
+}

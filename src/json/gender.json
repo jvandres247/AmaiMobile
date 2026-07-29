@@ -1,6 +1,6 @@
 [
-  {"id": 1, "label": "Femenino", "value": "fem"},
-  {"id": 2, "label": "Masculino", "value": "masc"},
-  {"id": 3, "label": "No Binario", "value": "non-binary"},
-  {"id": 4, "label": "Prefiero no decirlo", "value": "no-say"}
+  {"title": "Femenino", "id": "FEMALE"},
+  {"title": "Masculino", "id": "MALE"},
+  {"title": "No Binario", "id": "NON_BINARY"},
+  {"title": "Prefiero no decirlo", "id": "PREFER_NOT_TO_SAY"}
 ]

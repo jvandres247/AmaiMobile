@@ -7,12 +7,16 @@ import ScreenLayout from '../ScreenLayout/ScreenLayout';
 import ageOptions from '../../json/ageRanges.json';
 import LoginScreenLogo from '../../assets/svg/LoginScreenLogo.svg';
 import COLORS from '../../theme/colors';
+import {useOnboarding} from '../../hooks/useOnboarding';
 
 type Props = NativeStackScreenProps<OnboardingStackParamList, 'AgeScreen'>;
 
 const AgeScreen: React.FC<Props> = ({navigation}) => {
-  const handleAgeSelection = (value: string) => {
+  const {setAgeRange} = useOnboarding();
+
+  const handleAgeSelection = (value: any) => {
     console.log('Edad seleccionada', `Valor: ${value}`);
+    setAgeRange(value);
     navigation.navigate('GenderScreen');
   };
 

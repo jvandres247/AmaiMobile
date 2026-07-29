@@ -3,6 +3,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 // Extend the global type to include clearAsyncStorage
 declare global {
   var clearAsyncStorage: (() => Promise<void>) | undefined;
+  var clearOnboarding: (() => Promise<void>) | undefined;
   var logAsyncStorage: (() => Promise<void>) | undefined;
 }
 
@@ -14,6 +15,15 @@ export const setupDevTools = () => {
         console.log('✅ AsyncStorage limpiado');
       } catch (e) {
         console.error('❌ Error al limpiar AsyncStorage:', e);
+      }
+    };
+
+    global.clearOnboarding = async () => {
+      try {
+        await AsyncStorage.removeItem('completedOnboarding');
+        console.log('✅ Onboarding limpiado');
+      } catch (e) {
+        console.error('❌ Error al limpiar Onboarding:', e);
       }
     };
 

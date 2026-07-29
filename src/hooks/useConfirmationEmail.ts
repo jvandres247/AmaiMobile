@@ -3,7 +3,7 @@ import {CONFIRM_EMAIL_MUTATION} from '../graphql/mutations/confirmEmail';
 import {useVerificationStore} from '../store/verificationStore';
 
 interface ConfirmResponse {
-  confirmEmail: boolean; // o string según backend
+  confirmEmail: boolean;
 }
 
 interface ConfirmVariables {

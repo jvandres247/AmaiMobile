@@ -136,7 +136,7 @@ const CustomCarousel: React.FC<CarouselProps> = ({
             text="Empezar mi camino"
             onPress={onPrimaryAction}
             size="xl"
-            variant="primary"
+            variant="tertiary"
           />
           <TouchableOpacity style={styles.footer} onPress={onSecondaryAction}>
             <Text style={styles.footerText}>
@@ -224,7 +224,7 @@ const styles = StyleSheet.create({
   },
   link: {
     fontFamily: 'Quicksand-Bold',
-    color: COLORS.links,
+    color: COLORS.main,
   },
 });
 
